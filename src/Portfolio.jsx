@@ -508,7 +508,7 @@ export default function Portfolio() {
             <div style={{ flex: 1, minWidth: 280 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 4 }}>
                 <div style={{ fontFamily: "\'Fraunces\',serif", fontSize: 30, fontWeight: 700, color: t.nameText, letterSpacing: "-0.01em" }}>
-                  Charlie May
+                  Charles (Charlie) May
                 </div>
                 <button className="toggle-btn" style={{ background: t.toggleBg, borderColor: t.toggleBorder, color: t.toggleText }} onClick={() => setDark(!dark)}>
                   {dark ? "☀ light" : "☾ dark"}
