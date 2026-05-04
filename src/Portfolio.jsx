@@ -131,16 +131,16 @@ const projects = [
     color: "#00e5ff",
   },
   {
-    id: "hanes-brand-leakage",
+    id: "apparel-brand-leakage",
     tag: "EDA  —  Brand Intelligence  —  Causal Analysis",
-    title: "Hanes Brand Leakage & Buy Box Analysis",
+    title: "National Apparel Brand — Buy Box Leakage Analysis",
     subtitle: "Major Apparel Brand  —  3P Seller Arbitrage  —  Revenue Erosion Quantification",
-    summary: "Conducted deep EDA for a major clothing manufacturer to diagnose and quantify revenue erosion from third-party seller buy box capture. Combined Keepa historic buy box ownership data with retail performance data to estimate how much 1P revenue was displaced by 3P arbitrage — including a specific promo-driven arbitrage scenario.",
+    summary: "Conducted deep EDA for a major national apparel brand to diagnose and quantify revenue erosion from third-party seller buy box capture. Combined Keepa historic buy box ownership data with retail performance data to estimate how much 1P revenue was displaced by 3P arbitrage — including a specific promo-driven arbitrage scenario.",
     bullets: [
       "Buy box win rate weighted by glance views across product dimension segments (category, silhouette, gender, price tier) — revealing which product categories had the highest 3P exposure by revenue impact",
       "Estimated revenue erosion: modeled expected revenue = actual revenue / buy box win rate, providing a counterfactual for revenue captured at 100% buy box ownership",
       "Reseller YoY analysis: identified top 3P sellers by estimated revenue, tracked monthly capture trends to distinguish opportunistic arbitrage from structured gray market activity",
-      "Investigated a specific promotional arbitrage hypothesis: built best-reseller-offer comparison to test whether 3P sellers systematically undercut during Hanes promotional windows",
+      "Investigated a specific promotional arbitrage hypothesis: built best-reseller-offer comparison to test whether 3P sellers were systematically undercutting during the client's promotional windows",
     ],
     stack: ["Python", "pandas", "Keepa", "Snowflake", "OLS regression", "seaborn", "Plotly"],
     impact: "Quantified 3P revenue displacement for a major national apparel brand. Provided the analytical foundation for a buy box defense strategy and pricing controls.",
@@ -518,12 +518,11 @@ export default function Portfolio() {
                 ML Engineer — Analytics Engineer — Data Platform — Production ML Systems
               </div>
               <div style={{ fontSize: 12.5, color: t.bodyText, lineHeight: 1.8, maxWidth: 560 }}>
-                ML engineer and data platform architect with production work across the full modeling lifecycle.
-                Deployed online anomaly detection in a 35K devices/day wireless carrier refurbishment warehouse (Azure ML)
-                and a multi-signal Amazon monitoring platform (Prophet + multi-rule consensus) across a dozen clients.
-                Causal inference practitioner — built a four-stage content optimization platform and a regression-based DiD framework for ecommerce experiments.
-                Sole engineer on a multi-client paid media data mart (BigQuery / Dataform / Cloud Run).
-                M.S. Data Analytics, Georgia Tech (in progress). 12-year background in digital commerce.
+                I'm a data scientist and ML engineer based in Indianapolis, where I live with my five daughters and two doodles.
+                I came to this work through a 12-year career in digital commerce — building things, running teams, and eventually realizing the most interesting problems were in the data underneath everything.
+                That led me back to school (M.S. Data Analytics, Georgia Tech, in progress) and forward into production ML work I'm genuinely proud of.
+                This portfolio exists because the work is real and worth showing — production systems, rigorous methodology, and problems that actually mattered to the businesses they were built for.
+                I'm currently exploring what's next: senior IC roles in analytics engineering, ML engineering, or data platform work where depth is valued over theater.
               </div>
             </div>
             <div style={{ textAlign: "right", minWidth: 170 }}>
