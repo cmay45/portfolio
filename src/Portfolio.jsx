@@ -198,8 +198,8 @@ const projects = [
 
 const skills = {
   "Languages": ["Python", "SQL", "R", "PySpark"],
-  "ML / Modeling": ["ARIMA / Time Series", "XGBoost / LightGBM", "Random Forest", "Survival Analysis", "Anomaly Detection", "Regression & Classification", "Clustering / Segmentation", "Causal Inference / DiD", "Media Mix Modeling"],
-  "Data Engineering": ["BigQuery", "Dataform (dbt equivalent)", "Azure Data Factory", "Synapse / Fabric", "Cloud Run", "ETL Pipeline Design"],
+  "ML / Modeling": ["ARIMA / Time Series", "XGBoost / LightGBM", "Random Forest", "Survival Analysis", "Anomaly Detection", "Regression & Classification", "Clustering / Segmentation", "Causal Inference / DiD", "LLM Integrations", "Media Mix Modeling"],
+  "Data Engineering": ["BigQuery", "Snowflake", "Dataform (dbt equivalent)", "Azure Data Factory", "Synapse / Fabric", "Cloud Run", "ETL Pipeline Design"],
   "MLOps / Infra": ["GCP (full stack)", "Azure ML", "DataRobot", "Azure", "Docker", "Streamlit", "IAP / Auth", "CI/CD via Cloud Build"],
   "Analytics": ["Looker / Data Studio", "Power BI", "Google Analytics 4", "Multi-touch Attribution", "HubSpot Analytics"],
 };
