@@ -590,7 +590,7 @@ export default function Portfolio() {
         {/* Footer */}
         <div style={{ marginTop: 48, paddingTop: 20, borderTop: `1px solid ${t.headerBorder}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <div style={{ fontSize: 11, color: t.footerText, fontFamily: "\'IBM Plex Mono\',monospace" }}>M.S. Data Analytics — Georgia Tech (in progress) — Indianapolis, IN</div>
-          <div style={{ fontSize: 11, color: t.footerText, fontFamily: "\'IBM Plex Mono\',monospace" }}>Target: $140–175K — Remote — Sr. Analytics Engineer / ML Engineer / Data Platform</div>
+          {/* <div style={{ fontSize: 11, color: t.footerText, fontFamily: "\'IBM Plex Mono\',monospace" }}>Target: $140–175K — Remote — Sr. Analytics Engineer / ML Engineer / Data Platform</div> */}
         </div>
       </div>
     </div>
