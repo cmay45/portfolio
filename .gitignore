@@ -2,3 +2,22 @@ node_modules/
 dist/
 .DS_Store
 *.log
+# env files
+.env
+.env.local
+.env.*.local
+
+# Windows junk
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+
+# Vite cache
+.vite/
+
+# Electron build output
+out/
+release/
+*.exe
