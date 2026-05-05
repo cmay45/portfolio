@@ -238,7 +238,7 @@ const LeadFunnelSVG = ({ color }) => {
 
 const PROJECT_IMAGES = {
   "verizon-anomaly":       { type: "svg",   component: DecisionTreeSVG,
-                             caption: "decision tree — intake classification  |  deployed via azure ml" },
+                             caption: "decision tree — intake classification" },
   "amazon-did":            { type: "img",   src: "/portfolio-images/did.jpg",
                              caption: "parallel trends validation — DiD regression  |  16 metrics per experiment" },
   "repurchase-propensity": { type: "img",   src: "/portfolio-images/auc_propensity.jpg",
@@ -268,15 +268,15 @@ const PROJECT_IMAGES = {
 const projects = [
   {
     id: "verizon-anomaly",
-    tag: "Anomaly Detection  —  Online ML  —  Operations  —  Azure ML",
+    tag: "Anomaly Detection  —  Online ML  —  Operations",
     title: "Wireless Carrier — Production Line Device Intake Model",
-    subtitle: "Decision Tree  —  Online Inference  —  35K Devices/Day  —  Azure ML  —  Power BI",
+    subtitle: "Decision Tree  —  Online Inference  —  35K Devices/Day   Power BI",
     summary: "Built an online anomaly detection model for a major wireless carrier's device grading and resale production line — the operation that receives, cleans, grades, and resells used phones. X-ray scanners at intake couldn't reliably count devices per box or detect anomalous device type mixes, creating downstream capacity shocks across every workstation. A decision tree model provided real-time estimates when scanner signal was insufficient, stabilizing workflow throughput at ~35,000 devices per day.",
     bullets: [
       "Decision tree deployed as online model: chosen for interpretability — line supervisors and workstation managers needed to understand and contest predictions, making a black-box model operationally unacceptable at this scale",
       "Two detection tasks in one model: (1) device count estimation when X-ray scanner confidence was below threshold, and (2) anomalous device type mix detection — flagging boxes where the expected blend of phone models didn't match intake patterns",
       "Downstream impact was the core business case: each workstation (intake, cleaning, grading) has different throughput capacity per device type; an anomalous mix or miscounted box arriving undetected causes cascading bottlenecks across the entire line",
-      "Deployed via Azure ML — production environment with model versioning, monitoring, and online inference integration into the warehouse management system",
+      "Deployed via Azure — production environment with model versioning, monitoring, and online inference integration into the warehouse management system",
       "Model outputs extended to Power BI dashboards for business-level consumption — giving operations leadership daily visibility into intake accuracy, device mix anomalies, and workstation capacity forecasts without requiring direct model access",
     ],
     stack: ["Python", "Decision Tree", "Azure ML", "Power BI", "Online Inference", "scikit-learn"],
@@ -307,7 +307,7 @@ const projects = [
     summary: "Led V1 EDA on 13 years of transaction data for a major RV manufacturer (5,333 repeat buyers, 10,649 purchases, 2012–2025). Discovered HubSpot's own ML scorer was anti-predictive at 0.401 AUC — below coin-flip. Built a propensity model scoring 0.978 AUC and designed the full Phase 2 framework including survival analysis for repurchase window probabilities.",
     bullets: [
       "Key EDA findings: median 1.6yr repurchase cycle, 96% model switch rate, 83% price upgrade rate, super-loyalist cohort repurchasing every 3–6 months — none visible in existing HubSpot scoring",
-      "Head-to-head AUC benchmarks: our model (0.978) vs Lead Score v2 (0.791, explains 27%), HS Predictive Lead Score (0.701, 6%), HS Predictive Score v2 (0.401 — anti-predictive, Pearson -0.082). HubSpot trained on engagement signals anti-correlated with purchase",
+      "Head-to-head AUC benchmarks: our model (0.978) vs Lead Score (0.791, explains 27%), HS Predictive Lead Score (0.701, 6%), HS Predictive Score v2 (0.401 — anti-predictive, Pearson -0.082). HubSpot trained on engagement signals anti-correlated with purchase",
       "Whitelist-based feature architecture: explicit _numeric_shared and _boolean_shared column lists prevent silent feature leakage — new fields sit in the dataframe but don't enter the model unless manually promoted",
       "Data stitching notebook: buyer/non-buyer journey merge, geo enrichment using the us library, dual territory dict lookup from official sales territory PDFs; survival analysis designed for 30/60/90/180-day repurchase window probabilities by product line",
     ],
@@ -352,7 +352,7 @@ const projects = [
     tag: "Optimization  —  Econometrics  —  Demand Modeling",
     title: "Amazon Price Optimization Engine",
     subtitle: "Constant-Elasticity Demand Model  —  Profit Maximization  —  scipy.optimize",
-    summary: "Contributed to a per-ASIN price optimization engine (supporting role) that fits a constant-elasticity demand model (log-log OLS), computes point price elasticity, and uses scipy.optimize to find the profit-maximizing price given fixed and variable cost structure. Deployed for Spreetail and CDD with buy box barrier logic — pricing above the competitor threshold drops units to zero.",
+    summary: "Contributed to a per-ASIN price optimization engine (supporting role) that fits a constant-elasticity demand model (log-log OLS), computes point price elasticity, and uses scipy.optimize to find the profit-maximizing price given fixed and variable cost structure. Deployed for select clients with buy box barrier logic — pricing above the competitor threshold drops units to zero.",
     bullets: [
       "Log-log demand model per parent ASIN: log(orders + modifier) = a + b·log(price) with time-decay weighting 0.995^days_ago — more recent price observations carry higher weight; modifier derived from IQR handles zero-unit days without log(0)",
       "Buy box filter: only trains on observations where buy_box_percentage > 0.5 — prevents the model from learning demand at prices where the buy box is already lost, which would underestimate true elasticity",
@@ -384,15 +384,15 @@ const projects = [
     tag: "Analytics Engineering  —  Data Platform",
     title: "Paid Media Data Mart",
     subtitle: "BigQuery  —  Dataform  —  6 Ad Connectors  —  Three-Way Validated  —  Zero Delta",
-    summary: "Designed and built a production data mart from scratch, unifying six ad platform connectors into a single consumption layer. Three-way validated across Google Ads, Funnel, and BigQuery with zero metric delta across 20/20 campaigns.",
+    summary: "Designed and built a production data mart from scratch, unifying ad platform connectors into a single consumption layer. Three-way validated across ad platforms, ETL, and BigQuery with zero metric delta across campaigns.",
     bullets: [
       "Architected staging, enriched, and consumption layer model in Dataform (SQLX) with dependency graph and incremental logic across all six connectors simultaneously",
       "Resolved complex data quality issues: network_type duplication, correlated subquery fan-out via ROW_NUMBER CTE, duplicate client rows — each requiring separate diagnostic and fix pattern",
-      "Built DIM_TARGET_MAP dimension resolver and Google Sheets-fed Media Plan via Sheets API in Cloud Run microservice; shadow mode pipeline validated all six connectors to zero-diff before production promotion",
+      "Built DIM_TARGET_MAP dimension resolver and Google Sheets-fed Media Plan via Sheets API in Cloud Run microservice; shadow mode pipeline validated all connectors to zero-diff before production promotion",
       "Dataform prod release config on-demand with manual trigger during shadow mode — controlled promotion pattern preventing untested changes from reaching client dashboards",
     ],
     stack: ["BigQuery", "Dataform", "Cloud Run", "GCP", "Python", "SQL"],
-    impact: "Zero metric delta across all validation checks. Powers live HVT dashboards for a portfolio of automotive and recreational vehicle OEM clients.",
+    impact: "Zero metric delta across all validation checks. Powers live HVT dashboards for a portfolio of clients.",
     color: "#00e5ff",
   },
   {
@@ -419,7 +419,7 @@ const projects = [
     summary: "Built a comprehensive SQL classification system for a dealer network lead routing program processing ~11,000 records weekly. Discovered a critical 0.2% successful routing rate — a near-total failure invisible in all existing reporting.",
     bullets: [
       "Five-case classification logic: routing violations, organic reconversion, unenrollment/override, enrollment, currently held — all resolved in a single SQL pass with no post-processing",
-      "Built align_status_snapshot table with dealer attribution fields for longitudinal tracking of routing health over time",
+      "Built daily snapshot table with seller attribution fields for tracking of routing health over time",
       "Implemented Make.com three-scenario automation chain replacing manual HubSpot operations across all 11K weekly records",
       "Integrated MySQL tracking layer and HubSpot property writes for operational monitoring visible to account teams without SQL access",
     ],
@@ -432,7 +432,7 @@ const projects = [
     tag: "Operations Research  —  Simulation  —  Forecasting",
     title: "Call Center Staffing Optimization",
     subtitle: "SimPy  —  Queueing Theory  —  ARIMA Volume Forecast  —  Capacity Planning",
-    summary: "Analyzed a 4-agent call center operating at 205% capacity with 34% service level. Built discrete event simulation and ARIMA volume forecasting to produce data-driven staffing recommendations with scenario modeling.",
+    summary: "Analyzed a multi-agent call center operating at 205% capacity with 34% service level. Built discrete event simulation and ARIMA volume forecasting to produce data-driven staffing recommendations with scenario modeling.",
     bullets: [
       "Identified 205% capacity utilization and 34% service level through queueing analysis of historical call logs across inbound, voicemail, and callback channels",
       "Built SimPy discrete event simulation modeling throughput, voicemail rates, and callback volume under different staffing scenarios",
@@ -450,13 +450,12 @@ const projects = [
     subtitle: "Cloud Run  —  IAP  —  Dataform  —  Streamlit  —  Multi-Client  —  Sole Engineer",
     summary: "Architected and sole-engineered a shared GCP data platform supporting a multi-client analytics portfolio. Everything from raw ingestion through transformation, modeling, and client-facing app delivery — built and operated by one person across five enterprise clients.",
     bullets: [
-      "GCP project: paid-and-performance-data-mart (us-central1). Cloud Run services: media-config-app and media-config-app-staging with environment parity between staging and production",
+      "GCP project: paid-and-performance-data-mart (us-central1). Cloud Run services: media configuration app and staging with environment parity between staging and production",
       "Global HTTPS load balancing with Identity-Aware Proxy (IAP) for client authentication without per-user credential management or VPN requirements",
-      "Dataform prod release config on-demand with manual trigger during shadow mode — controlled promotion to production; known silent failure mode on stg_google_ads view creation documented with manual BQ console workaround",
-      "Parallel Azure/Fabric migration architecture for a major OEM client: Azure Data Factory, Synapse, Fabric, Power BI delivery pipeline coordinated across four stakeholders with a hard launch deadline",
+      "Dataform prod release config on-demand with manual trigger during shadow mode — controlled promotion to production; known silent failure mode on media channel view creation documented with manual BQ console workaround",
     ],
-    stack: ["GCP", "Cloud Run", "BigQuery", "Dataform", "Streamlit", "Azure", "Fabric", "Docker"],
-    impact: "Sole engineer delivering production infrastructure replacing fragmented, manual reporting across five enterprise clients simultaneously.",
+    stack: ["GCP", "Cloud Run", "BigQuery", "Dataform", "Streamlit", "Docker"],
+    impact: "Sole engineer delivering production infrastructure replacing fragmented, manual reporting scalable to all enterprise clients with flexibility to transition legacy platform to new concurrently.",
     color: "#40c4ff",
   },
 ];
@@ -464,7 +463,7 @@ const projects = [
 const skills = {
   "Languages": ["Python", "SQL", "R", "PySpark"],
   "ML / Modeling": ["ARIMA / Time Series", "XGBoost / LightGBM", "Random Forest", "Survival Analysis", "Anomaly Detection", "Regression & Classification", "Clustering / Segmentation", "Causal Inference / DiD", "LLM Integrations", "Media Mix Modeling"],
-  "Data Engineering": ["BigQuery", "Snowflake", "Dataform (dbt equivalent)", "Azure Data Factory", "Synapse / Fabric", "Cloud Run", "ETL Pipeline Design"],
+  "Data Engineering": ["BigQuery", "Snowflake", "Dataform", "DBT", "Azure Data Factory", "Synapse / Fabric", "Cloud Run", "ETL Pipeline Design"],
   "MLOps / Infra": ["GCP (full stack)", "Azure ML", "DataRobot", "Azure", "Docker", "Streamlit", "IAP / Auth", "CI/CD via Cloud Build"],
   "Analytics": ["Looker / Data Studio", "Power BI", "Google Analytics 4", "Multi-touch Attribution", "HubSpot Analytics"],
 };
