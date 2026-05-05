@@ -689,7 +689,7 @@ export default function Portfolio() {
                 </button>
               </div>
               <div style={{ fontSize: 12, color: t.subtitleText, marginBottom: 14, fontFamily: "'IBM Plex Mono',monospace", letterSpacing: "0.03em" }}>
-                ML Engineer — Analytics Engineer — Data Platform — Production ML Systems
+                Data Science and ML Engineer — Analytics Engineer — Data Platform — Production ML Systems
               </div>
               <div style={{ fontSize: 12.5, color: t.bodyText, lineHeight: 1.8, maxWidth: 560 }}>
                 I'm a data scientist and ML engineer based in Indianapolis, where I live with my five daughters and two doodles.
