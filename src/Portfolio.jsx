@@ -447,7 +447,7 @@ const projects = [
     tag: "MLOps  —  Data Platform  —  Infrastructure",
     title: "End-to-End GCP ML Platform",
     subtitle: "Cloud Run  —  IAP  —  Dataform  —  Streamlit  —  Multi-Client  —  Sole Engineer",
-    summary: "Architected and sole-engineered a shared GCP data platform supporting a multi-client analytics portfolio. Everything from raw ingestion through transformation, modeling, and client-facing app delivery — built and operated by one person across five enterprise clients.",
+    summary: "Architected and engineered a shared GCP data platform supporting a multi-client analytics portfolio. Everything from raw ingestion through transformation, modeling, and client-facing app delivery.",
     bullets: [
       "GCP project: paid-and-performance-data-mart (us-central1). Cloud Run services: media configuration app and staging with environment parity between staging and production",
       "Global HTTPS load balancing with Identity-Aware Proxy (IAP) for client authentication without per-user credential management or VPN requirements",
