@@ -693,9 +693,9 @@ export default function Portfolio() {
               <div style={{ fontSize: 12.5, color: t.bodyText, lineHeight: 1.8, maxWidth: 560 }}>
                 I'm a data scientist and ML engineer based in Indianapolis, where I live with my five daughters and two doodles.
                 I came to this work through a 12-year career in digital commerce — building things, running teams, and eventually realizing the most interesting problems were in the data underneath everything.
-                That led me back to school (M.S. Data Analytics, Georgia Tech, one final class to go.) and forward into production ML work I'm genuinely proud of.
-                This portfolio exists because the work is real and worth showing — production systems, rigorous methodology, and problems that actually mattered to the businesses they were built for.
-                I'm currently Director of Data Science & Analytics at Element Three, a marketing agency, where I build data infrastructure and analytics platforms for the agency and its clients.{/* I'm open to consulting opportunities in analytics engineering, ML engineering, or data platform work. */}
+                That led me back to school (M.S. Data Analytics, Georgia Tech, one final class to go.) and forward into production data science and ML work I'm genuinely proud of.
+                This portfolio exists to attempt to showcase for data professionals what is often hidden in the backend of projects and because the problems these solved truly mattered to the businesses they were built for.
+                I'm currently Director of Data Science & Analytics at Element Three, a marketing agency in Indianapolis, where I build data analytics platforms and solve complex data challenges for the agency and its clients.{/* I'm open to consulting opportunities in analytics engineering, ML engineering, or data platform work. */}
               </div>
             </div>
             <div style={{ textAlign: "right", minWidth: 170 }}>
