@@ -6,10 +6,10 @@ export const caseStudies = [
     subtitle: "Georgia Tech Practicum · Random Forest · Feature Engineering",
     kicker: "Machine Learning · Feature Engineering · Decision Support",
     summary:
-      "A machine learning pipeline for early-stage construction estimating, designed to turn sparse project descriptions, geography, inflation, and historical line-item patterns into a more reliable conceptual cost signal.",
-    decision: "Estimate earlier with less false confidence",
-    output: "Prediction pipeline + model diagnostics",
-    role: "Data science, feature design, modeling",
+      "A machine learning pipeline that fed an AI-generated cost estimate workflow, turning user inputs, project descriptions, geography, inflation, and historical line-item patterns into a more reliable conceptual estimating signal.",
+    decision: "Generate earlier AI-assisted estimates with less false confidence",
+    output: "Model ensemble inputs + AI-assisted estimate workflow",
+    role: "Data science, feature design, modeling, AI workflow design",
     projectType: "Academic / generalized work sample. Proprietary and identifying details removed.",
     signals: [
       "Project text",
@@ -17,6 +17,8 @@ export const caseStudies = [
       "Inflation",
       "Scope clusters",
       "Historical cost",
+      "User estimate inputs",
+      "AI estimate context",
     ],
     methods: [
       "Python",
@@ -26,16 +28,18 @@ export const caseStudies = [
       "K-Means",
       "TF-IDF",
       "FRED API",
+      "AI-assisted estimation",
     ],
     problem:
-      "Class 5 estimates are often needed before clean scope, drawings, or reliable quantities exist. The goal was not false precision — it was a better directional signal for conceptual planning.",
+      "Class 5 estimates are often needed before clean scope, drawings, or reliable quantities exist. The goal was to support an AI-generated estimate experience that could use limited user inputs without pretending the estimate was more precise than the data allowed.",
     challenge:
-      "The inherited pipeline had drifted and relied too heavily on unstable size-based predictors. Useful signal had to be extracted from text, geography, units, timing, and repeated scope patterns without leaking the target.",
+      "The inherited pipeline had drifted and relied too heavily on unstable size-based predictors. The AI-facing workflow needed trustworthy model inputs from text, geography, units, timing, and repeated scope patterns without leaking the target or overclaiming certainty.",
     approach: [
       "Diagnosed the inherited model drift and identified unstable square-footage dependence as a major failure mode.",
       "Normalized costs for inflation using construction price index data and added geographic cost adjustment signals.",
       "Converted project descriptions into text features and added K-Means scope clusters to capture repeated project patterns.",
       "Tested feature groups through controlled experiments and excluded target-leaking ratio features even when they improved headline metrics.",
+      "Structured the model outputs so they could feed an AI-generated cost estimate using user-provided project inputs and signals from multiple models.",
     ],
     metrics: [
       { value: "150K", label: "approximate records represented in the modeling workflow" },
@@ -43,9 +47,9 @@ export const caseStudies = [
       { value: "95%", label: "predictions within Class 5 ±50% threshold" },
     ],
     whatItShows:
-      "The value was not just the model. It was the translation layer: identifying what could be trusted, where uncertainty lived, how to prevent leakage, and how to explain the output as decision support rather than deterministic truth.",
+      "The value was not just the model. It was the translation layer between predictive modeling and AI-assisted estimation: deciding what could be trusted, where uncertainty lived, how to prevent leakage, and how to keep generated estimates grounded in model evidence.",
     impact:
-      "+176% R² versus inherited drifted baseline. 95% of predictions within Class 5 ±50% threshold. Delivered a reproducible pipeline and user-facing inference prototype.",
+      "+176% R² versus inherited drifted baseline. 95% of predictions within Class 5 ±50% threshold. Delivered a reproducible modeling pipeline designed to support a user-facing, AI-assisted cost estimate experience.",
     image: {
       type: "img",
       src: "/portfolio-images/case_construction_cost.png",
@@ -60,17 +64,20 @@ export const caseStudies = [
     subtitle: "Compliance · Optimization · Causal Measurement · Catalog Defense",
     kicker: "Causal Inference · Content Intelligence · End-to-End Platform",
     summary:
-      "A full-loop content intelligence platform that connected marketplace compliance, content optimization, causal lift measurement, and catalog monitoring into one governed workflow.",
-    decision: "Know which listing changes worked — and keep them from regressing",
-    output: "Optimization workflow + DiD measurement + production monitor",
-    role: "Analytics platform design, causal measurement, automation",
+      "A full-loop content intelligence platform that used AI to draft improved listing content, scored proposed updates against keyword ranking signals, and then used causal measurement to prove the changes worked.",
+    decision: "Use AI to improve listings without harming keyword performance",
+    output: "AI content workflow + keyword scoring + DiD proof layer",
+    role: "AI workflow design, scoring logic, causal measurement, automation",
     projectType: "Prior professional work sample. Client-identifying details and proprietary data removed.",
     signals: [
       "Listing content",
+      "AI-generated drafts",
       "Control ASINs",
       "Sales metrics",
       "Traffic metrics",
       "Catalog changes",
+      "Keyword rankings",
+      "Content quality scores",
     ],
     methods: [
       "Python",
@@ -80,26 +87,28 @@ export const caseStudies = [
       "Snowflake",
       "Slack API",
       "Google Sheets API",
+      "AI-assisted content generation",
     ],
     problem:
-      "Content optimization was not just a copywriting problem. Marketplace rule changes and automated content edits created operational risk: listings could be changed, measured poorly, or quietly overwritten after optimization.",
+      "Content optimization was not just a copywriting problem. AI could accelerate the first draft of improved listing content, but every proposed update still had to be checked against keyword ranking signals so optimization did not accidentally reduce discoverability.",
     challenge:
-      "The work required a connected system: validate content before publishing, select reasonable controls, measure whether changes drove lift, and monitor the catalog after launch to detect unauthorized regression.",
+      "The work required a connected system: generate draft listing updates, score them against the ranking terms that mattered, prevent changes that would lower the score, measure whether approved updates drove lift, and monitor the catalog after launch.",
     approach: [
-      "Built a compliance-checking layer to validate listing content against marketplace rules before publishing.",
+      "Used AI to create the initial pass at updated listing information, giving teams a faster starting point for product titles, bullets, and content structure.",
+      "Scored proposed content against keyword ranking signals so updates could be blocked or revised when they risked decreasing search relevance.",
       "Designed regression-based control selection to identify comparable ASINs and support parallel-trends assumptions.",
-      "Measured lift using difference-in-differences regression across business metrics like conversion rate, organic visibility, and profit.",
+      "Used difference-in-differences regression as the proof layer to show whether the AI-assisted content workflow produced measurable lift across business metrics like conversion rate, organic visibility, and profit.",
       "Created a catalog monitor that compared live listing content against source-of-truth records and alerted teams when unauthorized changes appeared.",
     ],
     metrics: [
-      { value: "12", label: "client contexts supported by the platform workflow" },
-      { value: "16", label: "metrics evaluated per experiment" },
+      { value: "AI", label: "generated first-pass listing updates for human review" },
+      { value: "16", label: "metrics evaluated in the causal proof layer" },
       { value: "1.5K", label: "OLS fits in larger control-selection searches" },
     ],
     whatItShows:
-      "This was decision infrastructure, not a dashboard. The platform made optimization measurable, defensible, and operationally protected after publication.",
+      "This was AI decision infrastructure, not a content toy. The system used AI for speed, scoring for guardrails, and causal inference for proof — so optimization became measurable, defensible, and operationally protected after publication.",
     impact:
-      "Converted listing optimization from uncontrolled changes into a governed, causally measured, continuously defended workflow.",
+      "Converted AI-assisted listing optimization from uncontrolled content changes into a governed workflow with keyword safeguards, causal proof, and continuous catalog defense.",
     image: {
       type: "img",
       src: "/portfolio-images/case_amazon_content_did.png",
@@ -133,6 +142,7 @@ export const caseStudies = [
       "Alerting package",
       "Slack API",
       "Google Sheets API",
+      "AI-assisted content generation",
       "Keepa",
     ],
     problem:
