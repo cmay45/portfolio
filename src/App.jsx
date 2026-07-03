@@ -1,0 +1,224 @@
+import { useState } from "react";
+import ContactModal from "./components/ContactModal.jsx";
+import PrivacySecurity from "./components/PrivacySecurity.jsx";
+
+const services = [
+  {
+    title: "Data Clarity & Strategy",
+    text: "Clarify business questions, decision owners, definitions, assumptions, and what the data can responsibly answer.",
+  },
+  {
+    title: "Analytics Infrastructure",
+    text: "Build durable data marts, semantic layers, measurement logic, and reporting foundations that do not collapse under scrutiny.",
+  },
+  {
+    title: "Decision Science & Modeling",
+    text: "Forecasting, segmentation, scoring, anomaly detection, and applied ML tied to real operational decisions.",
+  },
+  {
+    title: "Responsible AI Enablement",
+    text: "Use AI where it accelerates the work, while preserving context, lineage, judgment, and accountability.",
+  },
+];
+
+const work = [
+  {
+    label: "Machine Learning",
+    title: "Class 5 Construction Cost Estimation",
+    result: "Built an ML pipeline to improve early-stage cost estimates using text, geography, inflation, and scope clustering.",
+  },
+  {
+    label: "Analytics Engineering",
+    title: "Paid Media Data Mart",
+    result: "Created production reporting infrastructure across fragmented marketing data sources, client definitions, and dashboard needs.",
+  },
+  {
+    label: "Measurement",
+    title: "Dealer Lead Routing Analysis",
+    result: "Mapped lead-flow failures and surfaced where process, data, and reporting logic obscured operational reality.",
+  },
+];
+
+function OrbitField() {
+  return (
+    <div className="orbitMap" aria-hidden="true">
+      <svg viewBox="0 0 900 620" preserveAspectRatio="xMidYMid slice">
+        <g transform="translate(560 285)">
+          <g transform="rotate(-14)">
+            <ellipse className="orbit teal" rx="54" ry="18" />
+          </g>
+
+          <g transform="rotate(8)">
+            <ellipse className="orbit white" rx="88" ry="29" />
+            <circle className="twinkleDot dotWhite fade1" cx="-71.2" cy="17.0" r="1.15" />
+          </g>
+
+          <g transform="rotate(-23)">
+            <ellipse className="orbit blue" rx="124" ry="42" />
+          </g>
+
+          <g transform="rotate(16)">
+            <ellipse className="orbit gold" rx="168" ry="58" />
+            <circle className="twinkleDot dotGold fade2" cx="145.5" cy="-29.0" r="1.15" />
+          </g>
+
+          <g transform="rotate(-9)">
+            <ellipse className="orbit teal" rx="214" ry="76" />
+          </g>
+
+          <g transform="rotate(24)">
+            <ellipse className="orbit purple" rx="266" ry="94" />
+          </g>
+
+          <g transform="rotate(-18)">
+            <ellipse className="orbit blue" rx="324" ry="116" />
+            <circle className="twinkleDot dotBlue fade3" cx="247.8" cy="74.7" r="1.15" />
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+export default function App() {
+  const [contactOpen, setContactOpen] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
+
+  if (showPrivacy) {
+    return (
+      <>
+        <PrivacySecurity onBack={() => setShowPrivacy(false)} onContact={() => setContactOpen(true)} />
+        <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
+      </>
+    );
+  }
+
+  return (
+    <>
+      <header className="siteHeader">
+        <a className="brand" href="#top" aria-label="Signalcraft Analytics home">
+          <img src="/FF-01.png" alt="Signalcraft Analytics" />
+        </a>
+
+        <nav className="navLinks" aria-label="Main navigation">
+          <a href="#view">View</a>
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <button type="button" onClick={() => setContactOpen(true)}>Contact</button>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section className="hero">
+          <div className="heroArt" />
+          <div className="signalWash" />
+          <OrbitField />
+
+          <div className="wrap heroGrid">
+            <div className="heroCopy">
+              <p className="eyebrow">Signalcraft Analytics</p>
+              <h1>
+                Turn data noise into <span>decision-ready signal.</span>
+              </h1>
+              <p className="heroLead">
+                Signalcraft Analytics helps organizations find the signal hidden inside messy data,
+                unreliable metrics, fragmented systems, and AI-assisted workflows — then build the decision
+                infrastructure needed to act with confidence.
+              </p>
+
+              <div className="heroActions">
+                <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
+                  Clarify a decision
+                </button>
+                <a className="secondaryBtn" href="#work">View selected work</a>
+              </div>
+
+              <p className="principle">Signal first. Tools second.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="view" className="section">
+          <div className="wrap split">
+            <div>
+              <p className="eyebrow">Our view</p>
+              <h2>More output is not the same as better thinking.</h2>
+            </div>
+            <div className="bodyCopy">
+              <p>
+                Modern teams have more dashboards, more tools, more AI-generated summaries, and more data than ever.
+                But many still struggle to answer basic business questions with confidence.
+              </p>
+              <p>
+                Signalcraft builds the layer between data and decision: the logic, infrastructure, modeling,
+                measurement, and judgment required to turn raw information into something leaders can actually use.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" className="section altSection">
+          <div className="wrap">
+            <p className="eyebrow">What we do</p>
+            <h2>Decision infrastructure for messy business reality.</h2>
+
+            <div className="cardGrid">
+              {services.map((service) => (
+                <article className="serviceCard" key={service.title}>
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="work" className="section">
+          <div className="wrap">
+            <p className="eyebrow">Selected work</p>
+            <h2>Work that connects technical systems to business decisions.</h2>
+
+            <div className="workGrid">
+              {work.map((item) => (
+                <article className="workCard" key={item.title}>
+                  <p className="workLabel">{item.label}</p>
+                  <h3>{item.title}</h3>
+                  <p>{item.result}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section ctaSection">
+          <div className="wrap ctaBox">
+            <p className="eyebrow">Start here</p>
+            <h2>Bring the messy question.</h2>
+            <p>
+              The best place to begin is usually not a dashboard, a model, or an AI workflow. It is the decision you
+              need to make and the evidence required to trust it.
+            </p>
+            <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
+              Start a conversation
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <footer className="footer">
+        <div className="wrap footerInner">
+          <div>
+            <p className="footerBrand">Signalcraft Analytics</p>
+            <p>Operated by Charles May Analytics, LLC.</p>
+          </div>
+          <div className="footerLegal">
+            <p>No cookies. No tracking. This site collects only the information you choose to submit through the contact form.</p>
+            <button type="button" onClick={() => setShowPrivacy(true)}>Privacy & Security</button>
+          </div>
+        </div>
+      </footer>
+
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
+    </>
+  );
+}
