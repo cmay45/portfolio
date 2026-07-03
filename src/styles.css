@@ -1160,3 +1160,127 @@ textarea {
     text-align: left;
   }
 }
+
+
+/* Feedback pass: larger desktop logo, mobile menu, mobile footer, about section */
+@media (min-width: 861px) {
+  .brand img {
+    height: 72px;
+  }
+}
+
+.desktopNav {
+  display: flex;
+}
+
+.menuToggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(238,248,247,0.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.045);
+  color: var(--text);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menuToggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.aboutSection {
+  padding-top: 0;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(88,225,207,0.055), transparent 28%),
+    radial-gradient(circle at 12% 46%, rgba(124,205,255,0.038), transparent 34%);
+}
+
+.aboutCopy p:first-child {
+  color: rgba(238,248,247,0.86);
+  font-size: 1.15rem;
+}
+
+@media (max-width: 860px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .menuToggle {
+    display: inline-flex;
+  }
+
+  .mobileMenu {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: calc(100% + 10px);
+    display: grid;
+    gap: 6px;
+    padding: 14px;
+    border: 1px solid rgba(238,248,247,0.12);
+    border-radius: 22px;
+    background:
+      linear-gradient(135deg, rgba(88,225,207,0.08), rgba(124,205,255,0.035) 46%, rgba(212,150,255,0.045) 100%),
+      rgba(2,8,10,0.96);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.16s ease, transform 0.16s ease;
+  }
+
+  .mobileMenu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .mobileMenu a,
+  .mobileMenu button {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 14px;
+    padding: 13px 14px;
+    background: rgba(255,255,255,0.045);
+    color: rgba(238,248,247,0.86);
+    text-align: left;
+    text-decoration: none;
+    font-weight: 760;
+    cursor: pointer;
+  }
+
+  .mobileMenu a:hover,
+  .mobileMenu button:hover {
+    background: rgba(88,225,207,0.095);
+    color: var(--teal);
+  }
+
+  .footerInner {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .footerLegal {
+    justify-items: center;
+  }
+
+  .aboutSplit {
+    gap: 26px;
+  }
+}

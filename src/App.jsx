@@ -70,6 +70,7 @@ export default function App() {
   const [contactOpen, setContactOpen] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [activeCaseStudyId, setActiveCaseStudyId] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const activeCaseStudy = caseStudies.find((study) => study.id === activeCaseStudyId);
 
@@ -93,15 +94,47 @@ export default function App() {
   return (
     <>
       <header className="siteHeader">
-        <a className="brand" href="#top" aria-label="Signalcraft Analytics home">
+        <a
+          className="brand"
+          href="#top"
+          aria-label="Signalcraft Analytics home"
+          onClick={() => setMenuOpen(false)}
+        >
           <img src="/signalcraft-logo-header.png" alt="Signalcraft Analytics" />
         </a>
 
-        <nav className="navLinks" aria-label="Main navigation">
-          <a href="#view">View</a>
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
+        <nav className="navLinks desktopNav" aria-label="Main navigation">
+          <a href="#services">What we do</a>
+          <a href="#work">Case studies</a>
+          <a href="#about">About</a>
           <button type="button" onClick={() => setContactOpen(true)}>Contact</button>
+        </nav>
+
+        <button
+          className="menuToggle"
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <nav className={`mobileMenu ${menuOpen ? "open" : ""}`} aria-label="Mobile navigation">
+          <a href="#services" onClick={() => setMenuOpen(false)}>What we do</a>
+          <a href="#work" onClick={() => setMenuOpen(false)}>Case studies</a>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <button
+            type="button"
+            onClick={() => {
+              setMenuOpen(false);
+              setContactOpen(true);
+            }}
+          >
+            Contact
+          </button>
         </nav>
       </header>
 
@@ -129,7 +162,6 @@ export default function App() {
                 </a>
                 <a className="secondaryBtn" href="#work">View selected work</a>
               </div>
-
             </div>
           </div>
         </section>
@@ -208,6 +240,33 @@ export default function App() {
             <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
               Start a conversation
             </button>
+          </div>
+        </section>
+
+        <section id="about" className="section aboutSection">
+          <div className="wrap split aboutSplit">
+            <div>
+              <p className="eyebrow">About</p>
+              <h2>Built by someone who has lived inside messy business systems.</h2>
+            </div>
+
+            <div className="bodyCopy aboutCopy">
+              <p>
+                Signalcraft Analytics is led by Charlie May, a data scientist and ML engineer based in Indianapolis.
+                His work sits where analytics engineering, machine learning, data platforms, and business decision-making meet.
+              </p>
+              <p>
+                Charlie came to this work through a 12-year career in digital commerce — building systems, running teams,
+                and learning that the most important problems are often buried in the data underneath the work.
+              </p>
+              <p>
+                He is completing an M.S. in Data Analytics at Georgia Tech and has built production work across forecasting,
+                anomaly detection, causal measurement, pricing, operational modeling, and data infrastructure.
+              </p>
+              <p>
+                The through-line is simple: reduce noise, expose assumptions, and build decision systems people can actually trust.
+              </p>
+            </div>
           </div>
         </section>
       </main>
