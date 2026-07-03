@@ -65,7 +65,7 @@ textarea {
 }
 
 .brand img {
-  height: 42px;
+  height: 58px;
   width: auto;
   display: block;
 }
@@ -600,7 +600,7 @@ textarea {
   }
 
   .brand img {
-    height: 36px;
+    height: 46px;
   }
 
   .hero {
@@ -633,5 +633,530 @@ textarea {
   .contactModal {
     padding: 26px 20px;
     border-radius: 20px;
+  }
+}
+
+
+.sectionIntro {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: rgba(238,248,247,0.62);
+  line-height: 1.65;
+}
+
+.workCard {
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.workCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(88,225,207,0.28);
+}
+
+.workCardCta {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--teal);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.caseOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: grid;
+  place-items: center;
+  padding: 26px;
+  background: rgba(0,0,0,0.70);
+  backdrop-filter: blur(10px);
+}
+
+.caseModal {
+  position: relative;
+  width: min(100%, 1040px);
+  max-height: min(92vh, 900px);
+  overflow: auto;
+  border-radius: 30px;
+  border: 1px solid rgba(88,225,207,0.18);
+  background:
+    linear-gradient(135deg, rgba(88,225,207,0.11), rgba(124,205,255,0.045) 42%, rgba(212,150,255,0.06) 100%),
+    radial-gradient(circle at 88% 5%, rgba(88,225,207,0.12), transparent 28%),
+    linear-gradient(180deg, rgba(7,18,20,0.985), rgba(2,8,10,0.99));
+  box-shadow: 0 36px 120px rgba(0,0,0,0.65);
+  color: var(--text);
+}
+
+.caseClose {
+  position: sticky;
+  top: 18px;
+  float: right;
+  margin: 18px 18px 0 0;
+  z-index: 5;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(238,248,247,0.14);
+  background: rgba(0,0,0,0.32);
+  color: var(--text);
+  font-size: 25px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.caseHero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) 360px;
+  gap: 34px;
+  padding: 48px 48px 20px;
+  overflow: hidden;
+}
+
+.caseHero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.28) 0 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(88,225,207,0.20) 0 0.8px, transparent 1.2px);
+  background-size: 78px 78px, 132px 132px;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 90%);
+}
+
+.caseTitleBlock,
+.caseVisual {
+  position: relative;
+  z-index: 2;
+}
+
+.caseKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 8px 10px;
+  border: 1px solid rgba(88,225,207,0.18);
+  border-radius: 999px;
+  color: rgba(238,248,247,0.74);
+  background: rgba(255,255,255,0.045);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.caseKicker::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 12px rgba(88,225,207,0.48);
+}
+
+.caseHero h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5.8vw, 5.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+}
+
+.caseSummary {
+  max-width: 620px;
+  margin: 22px 0 0;
+  color: rgba(238,248,247,0.74);
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+.caseMetaStrip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.caseMetaPill {
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(238,248,247,0.10);
+  background: rgba(0,0,0,0.18);
+}
+
+.caseMetaPill span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--soft);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 800;
+}
+
+.caseMetaPill strong {
+  display: block;
+  font-size: 0.96rem;
+  line-height: 1.25;
+}
+
+.caseVisual {
+  min-height: 320px;
+  border: 1px solid rgba(238,248,247,0.12);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(88,225,207,0.14), transparent 26%),
+    linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.caseVisual svg {
+  width: 92%;
+  height: 92%;
+  opacity: 0.95;
+}
+
+.caseVisual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 330px;
+  object-fit: contain;
+  padding: 18px;
+}
+
+.caseCaption {
+  margin: 0 48px 18px;
+  color: rgba(238,248,247,0.36);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  text-align: right;
+}
+
+.caseBody {
+  padding: 18px 48px 48px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.35fr;
+  gap: 22px;
+}
+
+.caseSideRail {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.caseRailPanel,
+.caseContentPanel,
+.caseImpactPanel {
+  border: 1px solid rgba(238,248,247,0.10);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(88,225,207,0.08), rgba(124,205,255,0.035) 48%, rgba(212,150,255,0.042) 100%),
+    rgba(255,255,255,0.032);
+}
+
+.caseRailPanel {
+  padding: 20px;
+}
+
+.caseRailPanel h4,
+.caseContentPanel h3,
+.caseImpactPanel h3 {
+  margin: 0 0 12px;
+  letter-spacing: -0.025em;
+}
+
+.caseRailPanel p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+  font-size: 0.94rem;
+}
+
+.caseTagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.caseTag {
+  border: 1px solid rgba(88,225,207,0.16);
+  background: rgba(88,225,207,0.055);
+  color: rgba(238,248,247,0.76);
+  border-radius: 999px;
+  padding: 7px 9px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.caseContentStack {
+  display: grid;
+  gap: 14px;
+}
+
+.caseContentPanel,
+.caseImpactPanel {
+  padding: 24px;
+}
+
+.caseContentPanel p,
+.caseContentPanel li,
+.caseImpactPanel p {
+  color: rgba(238,248,247,0.72);
+  line-height: 1.62;
+}
+
+.caseContentPanel ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.caseSectionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.caseMetricRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.caseMetric {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.20);
+  border: 1px solid rgba(238,248,247,0.085);
+}
+
+.caseMetric strong {
+  display: block;
+  font-size: 1.55rem;
+  letter-spacing: -0.04em;
+  color: var(--teal);
+}
+
+.caseMetric span {
+  display: block;
+  margin-top: 5px;
+  color: var(--soft);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.caseImpactPanel {
+  border-left: 3px solid var(--teal);
+}
+
+.caseFooter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  padding: 0 48px 48px;
+}
+
+.caseFooter p {
+  max-width: 620px;
+  color: var(--soft);
+  line-height: 1.5;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 920px) {
+  .caseOverlay {
+    padding: 14px;
+  }
+
+  .caseHero,
+  .caseBody {
+    grid-template-columns: 1fr;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .caseFooter {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .caseSectionGrid,
+  .caseMetricRow,
+  .caseMetaStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .caseVisual {
+    min-height: 230px;
+  }
+
+  .caseCaption {
+    margin-left: 24px;
+    margin-right: 24px;
+    text-align: left;
+  }
+}
+
+
+/* Case study visual refinement pass */
+.caseModal {
+  border: 1px solid rgba(167, 232, 225, 0.28);
+  background:
+    radial-gradient(circle at 82% 4%, rgba(88,225,207,0.17), transparent 30%),
+    radial-gradient(circle at 10% 20%, rgba(124,205,255,0.08), transparent 34%),
+    linear-gradient(180deg, rgba(16,34,39,0.99), rgba(8,22,27,0.995));
+  box-shadow:
+    0 36px 130px rgba(0,0,0,0.68),
+    inset 0 1px 0 rgba(255,255,255,0.055);
+}
+
+.caseHero {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
+}
+
+.caseVisual {
+  min-height: 320px;
+  border: 1px solid rgba(207, 248, 244, 0.24);
+  background:
+    linear-gradient(180deg, rgba(238,248,247,0.08), rgba(238,248,247,0.035)),
+    radial-gradient(circle at 50% 30%, rgba(88,225,207,0.13), transparent 36%);
+  padding: 10px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.035),
+    0 18px 60px rgba(0,0,0,0.28);
+}
+
+.caseVisual img {
+  width: 100%;
+  height: 100%;
+  max-height: 330px;
+  object-fit: contain;
+  padding: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(238,248,247,0.18);
+  background: rgba(2,8,10,0.55);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.22);
+}
+
+.caseVisual svg {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(238,248,247,0.18);
+  background: rgba(2,8,10,0.50);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.22);
+}
+
+.caseRailPanel,
+.caseContentPanel,
+.caseImpactPanel {
+  border: 1px solid rgba(238,248,247,0.155);
+  background:
+    linear-gradient(135deg, rgba(238,248,247,0.085), rgba(88,225,207,0.055) 45%, rgba(124,205,255,0.045) 100%),
+    rgba(255,255,255,0.035);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+}
+
+.caseMetaPill,
+.caseMetric {
+  border-color: rgba(238,248,247,0.14);
+  background: rgba(255,255,255,0.055);
+}
+
+.caseFooter {
+  border-top: 1px solid rgba(238,248,247,0.10);
+  padding-top: 24px;
+}
+
+
+/* Remove background boxes around case study visuals */
+.caseVisual {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  overflow: visible;
+}
+
+.caseVisual img {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 18px;
+  padding: 0;
+}
+
+.caseVisual svg {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 18px;
+}
+
+
+/* Bigger TL;DR hero visual placement */
+.caseModal {
+  width: min(100%, 1180px);
+}
+
+.caseHero {
+  grid-template-columns: 1fr;
+  padding-bottom: 28px;
+}
+
+.caseTitleBlock {
+  max-width: none;
+}
+
+.caseTldrVisual {
+  margin-top: 30px;
+}
+
+.caseTldrVisual .caseVisual {
+  width: 100%;
+  min-height: auto;
+  aspect-ratio: 4 / 3;
+  display: block;
+  overflow: visible;
+}
+
+.caseTldrVisual .caseVisual img,
+.caseTldrVisual .caseVisual svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+}
+
+.caseTldrVisual .caseCaption {
+  margin: 10px 0 0;
+  text-align: right;
+  color: rgba(238,248,247,0.46);
+}
+
+.caseBody {
+  padding-top: 0;
+}
+
+@media (max-width: 920px) {
+  .caseTldrVisual {
+    margin-top: 22px;
+  }
+
+  .caseTldrVisual .caseCaption {
+    text-align: left;
   }
 }

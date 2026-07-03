@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ContactModal from "./components/ContactModal.jsx";
 import PrivacySecurity from "./components/PrivacySecurity.jsx";
+import CaseStudyModal from "./components/CaseStudyModal.jsx";
+import { caseStudies } from "./data/caseStudies.js";
 
 const services = [
   {
@@ -21,23 +23,7 @@ const services = [
   },
 ];
 
-const work = [
-  {
-    label: "Machine Learning",
-    title: "Class 5 Construction Cost Estimation",
-    result: "Built an ML pipeline to improve early-stage cost estimates using text, geography, inflation, and scope clustering.",
-  },
-  {
-    label: "Analytics Engineering",
-    title: "Paid Media Data Mart",
-    result: "Created production reporting infrastructure across fragmented marketing data sources, client definitions, and dashboard needs.",
-  },
-  {
-    label: "Measurement",
-    title: "Dealer Lead Routing Analysis",
-    result: "Mapped lead-flow failures and surfaced where process, data, and reporting logic obscured operational reality.",
-  },
-];
+const work = caseStudies;
 
 function OrbitField() {
   return (
@@ -83,12 +69,23 @@ function OrbitField() {
 export default function App() {
   const [contactOpen, setContactOpen] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
+  const [activeCaseStudyId, setActiveCaseStudyId] = useState(null);
+
+  const activeCaseStudy = caseStudies.find((study) => study.id === activeCaseStudyId);
 
   if (showPrivacy) {
     return (
       <>
         <PrivacySecurity onBack={() => setShowPrivacy(false)} onContact={() => setContactOpen(true)} />
         <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
+        <CaseStudyModal
+          study={activeCaseStudy}
+          onClose={() => setActiveCaseStudyId(null)}
+          onContact={() => {
+            setActiveCaseStudyId(null);
+            setContactOpen(true);
+          }}
+        />
       </>
     );
   }
@@ -97,7 +94,7 @@ export default function App() {
     <>
       <header className="siteHeader">
         <a className="brand" href="#top" aria-label="Signalcraft Analytics home">
-          <img src="/FF-01.png" alt="Signalcraft Analytics" />
+          <img src="/signalcraft-logo-header.png" alt="Signalcraft Analytics" />
         </a>
 
         <nav className="navLinks" aria-label="Main navigation">
@@ -176,15 +173,26 @@ export default function App() {
         <section id="work" className="section">
           <div className="wrap">
             <p className="eyebrow">Selected work</p>
-            <h2>Work that connects technical systems to business decisions.</h2>
+            <h2>Work samples that turn messy signals into operational clarity.</h2>
+
+            <p className="sectionIntro">
+              Selected examples are generalized from academic and prior professional work. Client-identifying
+              details and proprietary data have been removed.
+            </p>
 
             <div className="workGrid">
               {work.map((item) => (
-                <article className="workCard" key={item.title}>
+                <button
+                  className="workCard"
+                  key={item.id}
+                  type="button"
+                  onClick={() => setActiveCaseStudyId(item.id)}
+                >
                   <p className="workLabel">{item.label}</p>
                   <h3>{item.title}</h3>
-                  <p>{item.result}</p>
-                </article>
+                  <p>{item.summary}</p>
+                  <span className="workCardCta">View case study →</span>
+                </button>
               ))}
             </div>
           </div>
@@ -216,6 +224,15 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      <CaseStudyModal
+        study={activeCaseStudy}
+        onClose={() => setActiveCaseStudyId(null)}
+        onContact={() => {
+          setActiveCaseStudyId(null);
+          setContactOpen(true);
+        }}
+      />
 
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
