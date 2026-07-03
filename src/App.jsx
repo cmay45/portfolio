@@ -116,7 +116,7 @@ export default function App() {
 
           <div className="wrap heroGrid">
             <div className="heroCopy">
-              <p className="eyebrow">Signalcraft Analytics</p>
+              <p className="eyebrow">Signal first. Tools second.</p>
               <h1>
                 Turn data noise into <span>decision-ready signal.</span>
               </h1>
@@ -127,9 +127,9 @@ export default function App() {
               </p>
 
               <div className="heroActions">
-                <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
-                  Clarify a decision
-                </button>
+                <a className="primaryBtn" href="#services">
+                  What we do
+                </a>
                 <a className="secondaryBtn" href="#work">View selected work</a>
               </div>
 
@@ -208,11 +208,10 @@ export default function App() {
       <footer className="footer">
         <div className="wrap footerInner">
           <div>
-            <p className="footerBrand">Signalcraft Analytics</p>
-            <p>Operated by Charles May Analytics, LLC.</p>
+            <p className="footerBrand">© Signalcraft Analytics</p>
+            
           </div>
           <div className="footerLegal">
-            <p>No cookies. No tracking. This site collects only the information you choose to submit through the contact form.</p>
             <button type="button" onClick={() => setShowPrivacy(true)}>Privacy & Security</button>
           </div>
         </div>

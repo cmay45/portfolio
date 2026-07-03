@@ -5,7 +5,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const MAX_LENGTHS = {
   name: 120,
   email: 180,
+  phone: 40,
   company: 160,
+  website: 240,
   message: 4000,
 };
 
@@ -26,8 +28,8 @@ function isEmail(value = "") {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-function looksLikeSpam({ name, email, message }) {
-  const text = `${name} ${email} ${message}`.toLowerCase();
+function looksLikeSpam({ name, email, phone, website, message }) {
+  const text = `${name} ${email} ${phone} ${website} ${message}`.toLowerCase();
 
   const obviousSpam =
     /(crypto|forex|casino|viagra|loan|backlink|seo package|telegram|whatsapp)/i.test(text);
@@ -35,6 +37,13 @@ function looksLikeSpam({ name, email, message }) {
   const tooManyLinks = (message.match(/https?:\/\//gi) || []).length > 2;
 
   return obviousSpam || tooManyLinks;
+}
+
+function getAllowedOrigins() {
+  return (process.env.ALLOWED_ORIGINS || process.env.ALLOWED_ORIGIN || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
 }
 
 export default async function handler(req, res) {
@@ -45,11 +54,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
 
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
-    .split(",")
-    .map((origin) => origin.trim())
-    .filter(Boolean);
-
+  const allowedOrigins = getAllowedOrigins();
   const origin = req.headers.origin;
 
   if (allowedOrigins.length && origin && !allowedOrigins.includes(origin)) {
@@ -64,7 +69,7 @@ export default async function handler(req, res) {
     const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body || {};
 
     // Honeypot: real users never see this field. Return success without sending.
-    if (clean(body.website, 200)) {
+    if (clean(body.referralCode, 200)) {
       return res.status(200).json({ ok: true });
     }
 
@@ -78,12 +83,14 @@ export default async function handler(req, res) {
 
     const name = clean(body.name, MAX_LENGTHS.name);
     const email = clean(body.email, MAX_LENGTHS.email);
+    const phone = clean(body.phone, MAX_LENGTHS.phone);
     const company = clean(body.company, MAX_LENGTHS.company);
+    const website = clean(body.website, MAX_LENGTHS.website);
     const message = clean(body.message, MAX_LENGTHS.message);
     const consent = Boolean(body.consent);
 
-    if (!name || !email || !message) {
-      return res.status(400).json({ ok: false, error: "Name, email, and message are required." });
+    if (!name || !email || !phone || !message) {
+      return res.status(400).json({ ok: false, error: "Name, email, phone, and message are required." });
     }
 
     if (!isEmail(email)) {
@@ -94,7 +101,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ ok: false, error: "Please acknowledge the privacy notice." });
     }
 
-    if (looksLikeSpam({ name, email, message })) {
+    if (looksLikeSpam({ name, email, phone, website, message })) {
       return res.status(200).json({ ok: true });
     }
 
@@ -103,7 +110,9 @@ export default async function handler(req, res) {
         <h2>New Signalcraft contact form submission</h2>
         <p><strong>Name:</strong> ${escapeHtml(name)}</p>
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
         <p><strong>Company:</strong> ${escapeHtml(company || "Not provided")}</p>
+        <p><strong>Website:</strong> ${escapeHtml(website || "Not provided")}</p>
         <hr />
         <p><strong>Message:</strong></p>
         <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
@@ -121,7 +130,9 @@ export default async function handler(req, res) {
         "",
         `Name: ${name}`,
         `Email: ${email}`,
+        `Phone: ${phone}`,
         `Company: ${company || "Not provided"}`,
+        `Website: ${website || "Not provided"}`,
         "",
         message,
       ].join("\n"),

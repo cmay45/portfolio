@@ -70,3 +70,19 @@ The contact form uses non-cookie spam controls:
 - link/spam pattern filtering
 
 If spam becomes a real issue, add server-side rate limiting with Vercel KV or Upstash before adding CAPTCHA.
+
+
+## Refined copy / SEO notes
+
+This version includes:
+
+- `public/robots.txt`
+- `public/sitemap.xml`
+- `<meta name="robots" content="index, follow" />`
+- `vercel.json` with `X-Robots-Tag: index, follow`
+
+After deployment, submit this sitemap in Google Search Console:
+
+```txt
+https://signalcraftanalytics.com/sitemap.xml
+```

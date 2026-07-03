@@ -19,7 +19,7 @@ export default function PrivacySecurity({ onBack, onContact }) {
           <h2>Information collected</h2>
           <p>
             If you submit the contact form, Signalcraft Analytics collects the information you choose to provide,
-            which may include your name, email address, company name, and message.
+            which may include your name, email address, phone number, company name, website, and message.
           </p>
         </section>
 

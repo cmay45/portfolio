@@ -344,7 +344,8 @@ textarea {
   border: 1px solid rgba(238,248,247,0.10);
   border-radius: 22px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(88,225,207,0.06), transparent 34%),
+    linear-gradient(135deg, rgba(88,225,207,0.105), rgba(124,205,255,0.045) 38%, rgba(212,150,255,0.055) 100%),
+    radial-gradient(circle at 100% 0%, rgba(88,225,207,0.10), transparent 34%),
     rgba(255,255,255,0.035);
   box-shadow: 0 24px 60px rgba(0,0,0,0.22);
 }
@@ -365,6 +366,14 @@ textarea {
 .ctaBox p {
   color: rgba(238,248,247,0.68);
   line-height: 1.6;
+}
+
+.serviceCard,
+.workCard,
+.ctaBox,
+.contactModal,
+.contactSuccess {
+  background-blend-mode: screen, normal, normal;
 }
 
 .workLabel {
@@ -418,7 +427,7 @@ textarea {
 .footerLegal {
   display: grid;
   gap: 10px;
-  justify-items: start;
+  justify-items: end;
 }
 
 .footerLegal button,
@@ -451,7 +460,8 @@ textarea {
   border-radius: 24px;
   padding: 34px;
   background:
-    radial-gradient(circle at 92% 8%, rgba(88,225,207,0.08), transparent 28%),
+    linear-gradient(135deg, rgba(88,225,207,0.11), rgba(124,205,255,0.045) 42%, rgba(212,150,255,0.06) 100%),
+    radial-gradient(circle at 92% 8%, rgba(88,225,207,0.10), transparent 28%),
     linear-gradient(180deg, rgba(8,18,20,0.98), rgba(2,8,10,0.98));
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55);
   color: var(--text);
@@ -548,7 +558,8 @@ textarea {
   margin-top: 24px;
   padding: 22px;
   border-radius: 18px;
-  background: rgba(88,225,207,0.08);
+  background:
+    linear-gradient(135deg, rgba(88,225,207,0.12), rgba(124,205,255,0.045) 55%, rgba(212,150,255,0.05));
   border: 1px solid rgba(88,225,207,0.16);
 }
 
