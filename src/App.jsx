@@ -130,7 +130,6 @@ export default function App() {
                 <a className="secondaryBtn" href="#work">View selected work</a>
               </div>
 
-              <p className="principle">Signal first. Tools second.</p>
             </div>
           </div>
         </section>
