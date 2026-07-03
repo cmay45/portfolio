@@ -45,11 +45,21 @@ export default async function handler(req, res) {
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
 
-  const allowedOrigin = process.env.ALLOWED_ORIGIN;
+  const allowedOrigins = [
+    process.env.ALLOWED_ORIGIN,
+    process.env.ALLOWED_ORIGIN_WWW,
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
+  ].filter(Boolean);
+
   const origin = req.headers.origin;
 
-  if (allowedOrigin && origin && origin !== allowedOrigin) {
-    return res.status(403).json({ ok: false, error: "Invalid origin" });
+  if (allowedOrigins.length && origin && !allowedOrigins.includes(origin)) {
+    return res.status(403).json({
+      ok: false,
+      error: "Invalid origin",
+      receivedOrigin: origin,
+      allowedOrigins,
+    });
   }
 
   try {
