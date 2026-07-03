@@ -1,23 +1,9 @@
-node_modules/
-dist/
-.DS_Store
-*.log
-# env files
+node_modules
+dist
 .env
 .env.local
 .env.*.local
+.DS_Store
 
-# Windows junk
-Thumbs.db
-
-# editor
-.vscode/
-.idea/
-
-# Vite cache
-.vite/
-
-# Electron build output
-out/
-release/
-*.exe
+.vercel
+.env*

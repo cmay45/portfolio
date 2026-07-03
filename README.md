@@ -1,39 +1,72 @@
-# Charlie May — ML Engineer Portfolio
+# Signalcraft Analytics Site Package
+
+This is a Vite + React + Vercel package for the Signalcraft Analytics site.
+
+## Included
+
+- Header using the uploaded Signalcraft logo: `public/FF-01.png`
+- Orbit hero with three subtle fading blips
+- Homepage messaging sections
+- Contact popup
+- Vercel serverless contact endpoint: `api/contact.js`
+- No-cookie Privacy & Security page
+- No cookies, no tracking pixels, no analytics script
+
+## Install
+
+```bash
+npm install
+```
 
 ## Local development
 
 ```bash
-npm install
+cp .env.local.example .env.local
 npm run dev
 ```
 
-Open http://localhost:5173
+For local testing, set:
 
-## Deploy to Vercel (recommended)
-
-1. Push this folder to a GitHub repo
-2. Go to vercel.com → Add New Project → Import your repo
-3. Vercel auto-detects Vite — just click Deploy
-4. Live at `your-project.vercel.app` in ~60 seconds
-
-## Custom domain (optional)
-
-In Vercel dashboard → Project → Settings → Domains → Add your domain.
-Point your domain's DNS A record to Vercel's IP (shown in the dashboard).
-Vercel handles SSL automatically.
-
-## File structure
-
-```
-├── index.html
-├── package.json
-├── vite.config.js
-└── src/
-    ├── main.jsx       ← React entry point
-    └── Portfolio.jsx  ← Main component (edit this)
+```txt
+ALLOWED_ORIGIN=http://localhost:5173
 ```
 
-## Updating content
+## Vercel environment variables
 
-All project data lives in the `projects` array at the top of `src/Portfolio.jsx`.
-Each card has: id, tag, title, subtitle, summary, bullets[], stack[], impact, color.
+In Vercel Project → Settings → Environment Variables:
+
+```txt
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxx
+CONTACT_TO=signalcraftanalytics@gmail.com
+CONTACT_FROM=Signalcraft Analytics <no-reply@signalcraftanalytics.com>
+ALLOWED_ORIGIN=https://signalcraftanalytics.com
+```
+
+`CONTACT_FROM` can use `no-reply@signalcraftanalytics.com` after your sending domain is verified in Resend. It does not need to be a real inbox.
+
+## Deploy
+
+Push this package to GitHub and connect it to Vercel, or copy these files into your existing Vercel repo.
+
+Build command:
+
+```bash
+npm run build
+```
+
+Output directory:
+
+```txt
+dist
+```
+
+## Notes
+
+The contact form uses non-cookie spam controls:
+- honeypot field
+- minimum submit time
+- server-side validation
+- origin check
+- link/spam pattern filtering
+
+If spam becomes a real issue, add server-side rate limiting with Vercel KV or Upstash before adding CAPTCHA.
