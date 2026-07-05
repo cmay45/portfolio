@@ -1,42 +1,13 @@
-node_modules/
-dist/
-.DS_Store
-*.log
-
-
-# Windows junk
-Thumbs.db
-
-# editor
-.vscode/
-.idea/
-
-# Vite cache
-.vite/
-
-# Electron build output
-out/
-release/
-*.exe
-
-# Local environment variables
-.vercel
-.vercel/
+node_modules
+dist
 .env
 .env.local
 .env.*.local
+.DS_Store
+.vercel/
+.vercel
 
-# Release notes
-CORRECTED_FORM_CHANGES.md
-FORM_UPDATE_CHANGES.md
-REFINED_CHANGES.md
-CASE_STUDY_IMPLEMENTATION
-LOGO_AND_FAVICON_UPDATE
-CASE_STUDY_BIG_TLDR_VISUALS.md
-CASE_STUDY_IMPLEMENTATION.md
-CASE_STUDY_VISUALS.md
-CASE_VISUAL_BOX_REMOVAL.md
-MOBILE_NAV_AND_ABOUT_UPDATE.md
+
 AI_CASE_STUDY_COPY_UPDATE.md
 CASE_STUDY_BIG_TLDR_VISUALS.md
 CASE_STUDY_IMPLEMENTATION.md
@@ -44,7 +15,5 @@ CASE_STUDY_VISUALS.md
 CASE_VISUAL_BOX_REMOVAL.md
 CORRECTED_FORM_CHANGES.md
 FORM_UPDATE_CHANGES.md
+HOW_WE_WORK_FAQ_UPDATE.md
 REFINED_CHANGES.md
-
-#suppress password
-middleware.js

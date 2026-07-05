@@ -386,7 +386,7 @@ textarea {
 }
 
 .ctaSection {
-  padding-top: 0;
+  padding: 96px 24px;
 }
 
 .ctaBox {
@@ -1201,7 +1201,7 @@ textarea {
 }
 
 .aboutSection {
-  padding-top: 0;
+  padding: 96px 24px;
   background:
     radial-gradient(circle at 88% 4%, rgba(88,225,207,0.055), transparent 28%),
     radial-gradient(circle at 12% 46%, rgba(124,205,255,0.038), transparent 34%);
@@ -1282,5 +1282,132 @@ textarea {
 
   .aboutSplit {
     gap: 26px;
+  }
+}
+
+.serviceIntro {
+  max-width: 860px;
+  margin-top: 24px;
+}
+
+.serviceIntro p {
+  margin: 0 0 18px;
+}
+
+.serviceIntro p:last-child {
+  margin-bottom: 0;
+}
+
+.processGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.processCard h3 {
+  color: rgba(238,248,247,0.92);
+}
+
+.faqSection {
+  background: #f4f5f1;
+  color: #121a1a;
+  border-top: 0;
+}
+
+.faqWrap {
+  max-width: 960px;
+}
+
+.faqSection .eyebrow {
+  color: #2a7f76;
+}
+
+.faqSection h2 {
+  color: #121a1a;
+}
+
+.faqIntro {
+  max-width: 700px;
+  margin: 18px 0 40px;
+  color: rgba(18, 26, 26, 0.68);
+  line-height: 1.65;
+  font-size: 1.05rem;
+}
+
+.faqList {
+  display: grid;
+  gap: 12px;
+}
+
+.faqItem {
+  border: 1px solid rgba(18, 26, 26, 0.11);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(2, 6, 7, 0.055);
+  overflow: hidden;
+}
+
+.faqItem summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  padding: 22px 58px 22px 24px;
+  color: #121a1a;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  color: #2a7f76;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.faqItem[open] summary::after {
+  content: "–";
+}
+
+.faqItem p {
+  margin: 0;
+  padding: 0 24px 24px;
+  color: rgba(18, 26, 26, 0.72);
+  line-height: 1.68;
+}
+
+@media (max-width: 860px) {
+  .processGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .faqSection {
+    padding: 72px 0;
+  }
+
+  .faqItem summary {
+    padding: 20px 52px 20px 20px;
+  }
+
+  .faqItem summary::after {
+    right: 20px;
+  }
+
+  .faqItem p {
+    padding: 0 20px 22px;
+  }
+
+  .footerInner {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footerLegal {
+    justify-items: center;
   }
 }
