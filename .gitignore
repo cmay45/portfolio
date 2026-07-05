@@ -1,13 +1,9 @@
-node_modules
-dist
-.env
 .env.local
-.env.*.local
-.DS_Store
 .vercel/
-.vercel
+dist/
+node_modules/
 
-
+# Internal change notes
 AI_CASE_STUDY_COPY_UPDATE.md
 CASE_STUDY_BIG_TLDR_VISUALS.md
 CASE_STUDY_IMPLEMENTATION.md
