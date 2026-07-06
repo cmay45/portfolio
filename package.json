@@ -11,5 +11,9 @@
     "react-dom": "latest",
     "resend": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+  "node": "20.x"
 }
+}
+
