@@ -6,7 +6,7 @@ import { caseStudies } from "./data/caseStudies.js";
 
 const workProcess = [
   {
-    title: "01 — Diagnose the Mess",
+    title: "01 — Clarify the Current State",
     text: "Map the data sources, reports, workflows, metrics, and business questions already in motion so the real problem becomes visible.",
   },
   {
