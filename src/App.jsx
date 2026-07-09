@@ -149,7 +149,7 @@ export default function App() {
             <div className="heroCopy">
               <p className="eyebrow">Signal first. Tools second.</p>
               <h1>
-                 Building data and AI systems for teams ready to find the <span>signal inside connected systems.</span>
+                 Building data and AI systems for teams ready to find the <span>signal inside connected platforms.</span>
               </h1>
               <p className="heroLead">
                 Signalcraft helps organizations turn fragmented platforms, conflicting metrics, and AI pressure
