@@ -44,6 +44,7 @@ export default function ContactModal({ open, onClose }) {
       phone: formData.get("phone"),
       company: formData.get("company"),
       website: formData.get("website"),
+      helpType: formData.get("helpType"),
       message: formData.get("message"),
 
       // Honeypot field. Real users should never fill this.
@@ -111,14 +112,19 @@ export default function ContactModal({ open, onClose }) {
           ×
         </button>
 
-        <p className="eyebrow">Start a conversation</p>
+        <p className="eyebrow">Schedule a discovery call</p>
 
-        <h2 id="contact-title">Tell me what you are trying to clarify.</h2>
+        <h2 id="contact-title">Request a Signalcraft Diagnostic Call.</h2>
+
+        <p className="contactIntro">
+          Use this form to request a discovery call. The first conversation is focused on the decision you need to make,
+          where the current data or AI system is breaking down, and whether a Signalcraft diagnostic is the right next step.
+        </p>
 
         {status === "sent" ? (
           <div className="contactSuccess">
-            <h3>Message sent.</h3>
-            <p>Thanks — I’ll reply at the email address you provided.</p>
+            <h3>Request sent.</h3>
+            <p>Thanks — I’ll review this and follow up about scheduling a discovery call if it looks like a fit.</p>
 
             <button className="primaryBtn" type="button" onClick={onClose}>
               Close
@@ -181,12 +187,26 @@ export default function ContactModal({ open, onClose }) {
             </label>
 
             <label>
-              Message
+              What kind of help are you looking for?
+              <select name="helpType" required defaultValue="">
+                <option value="" disabled>Select one</option>
+                <option value="Schedule a discovery call">Schedule a discovery call</option>
+                <option value="Data/analytics diagnostic">Data/analytics diagnostic</option>
+                <option value="AI readiness or workflow review">AI readiness or workflow review</option>
+                <option value="Dashboard/reporting trust issue">Dashboard/reporting trust issue</option>
+                <option value="Modeling, forecasting, or anomaly detection">Modeling, forecasting, or anomaly detection</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </label>
+
+            <label>
+              Decision problem
               <textarea
                 name="message"
                 required
                 rows={6}
                 maxLength={4000}
+                placeholder="What decision are you trying to make, and where is the current data, reporting, or AI workflow breaking down?"
               />
             </label>
 
@@ -205,7 +225,7 @@ export default function ContactModal({ open, onClose }) {
               <input name="consent" type="checkbox" required />
               <span>
                 I understand this form collects my name, email, phone number,
-                optional website, and message so Signalcraft Analytics can respond.
+                optional company/website, selected help type, and message so Signalcraft Analytics can respond.
               </span>
             </label>
 
@@ -216,7 +236,7 @@ export default function ContactModal({ open, onClose }) {
               type="submit"
               disabled={status === "submitting"}
             >
-              {status === "submitting" ? "Sending…" : "Send message"}
+              {status === "submitting" ? "Sending…" : "Request discovery call"}
             </button>
           </form>
         )}

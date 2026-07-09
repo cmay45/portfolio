@@ -8,6 +8,7 @@ const MAX_LENGTHS = {
   phone: 40,
   company: 160,
   website: 240,
+  helpType: 120,
   message: 4000,
 };
 
@@ -28,8 +29,8 @@ function isEmail(value = "") {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-function looksLikeSpam({ name, email, phone, website, message }) {
-  const text = `${name} ${email} ${phone} ${website} ${message}`.toLowerCase();
+function looksLikeSpam({ name, email, phone, website, helpType, message }) {
+  const text = `${name} ${email} ${phone} ${website} ${helpType} ${message}`.toLowerCase();
 
   const obviousSpam =
     /(crypto|forex|casino|viagra|loan|backlink|seo package|telegram|whatsapp)/i.test(text);
@@ -86,11 +87,12 @@ export default async function handler(req, res) {
     const phone = clean(body.phone, MAX_LENGTHS.phone);
     const company = clean(body.company, MAX_LENGTHS.company);
     const website = clean(body.website, MAX_LENGTHS.website);
+    const helpType = clean(body.helpType, MAX_LENGTHS.helpType);
     const message = clean(body.message, MAX_LENGTHS.message);
     const consent = Boolean(body.consent);
 
-    if (!name || !email || !phone || !message) {
-      return res.status(400).json({ ok: false, error: "Name, email, phone, and message are required." });
+    if (!name || !email || !phone || !helpType || !message) {
+      return res.status(400).json({ ok: false, error: "Name, email, phone, help type, and decision problem are required." });
     }
 
     if (!isEmail(email)) {
@@ -101,7 +103,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ ok: false, error: "Please acknowledge the privacy notice." });
     }
 
-    if (looksLikeSpam({ name, email, phone, website, message })) {
+    if (looksLikeSpam({ name, email, phone, website, helpType, message })) {
       return res.status(200).json({ ok: true });
     }
 
@@ -113,8 +115,9 @@ export default async function handler(req, res) {
         <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
         <p><strong>Company:</strong> ${escapeHtml(company || "Not provided")}</p>
         <p><strong>Website:</strong> ${escapeHtml(website || "Not provided")}</p>
+        <p><strong>Help type:</strong> ${escapeHtml(helpType)}</p>
         <hr />
-        <p><strong>Message:</strong></p>
+        <p><strong>Decision problem:</strong></p>
         <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
       </div>
     `;
@@ -123,7 +126,7 @@ export default async function handler(req, res) {
       from: process.env.CONTACT_FROM,
       to: process.env.CONTACT_TO || "signalcraftanalytics@gmail.com",
       reply_to: email,
-      subject: `Signalcraft inquiry from ${name}`,
+      subject: `Signalcraft discovery call request from ${name}`,
       html,
       text: [
         "New Signalcraft contact form submission",
@@ -133,7 +136,9 @@ export default async function handler(req, res) {
         `Phone: ${phone}`,
         `Company: ${company || "Not provided"}`,
         `Website: ${website || "Not provided"}`,
+        `Help type: ${helpType}`,
         "",
+        "Decision problem:",
         message,
       ].join("\n"),
     });

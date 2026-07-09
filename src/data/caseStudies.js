@@ -1,6 +1,9 @@
 export const caseStudies = [
   {
     id: "construction-cost",
+    cardTitle: "AI-assisted cost estimates from limited project inputs",
+    cardSummary:
+      "A construction estimating workflow needed earlier cost ranges without false precision. I built the modeling layer that grounded AI-generated estimates in historical cost, geography, inflation, and scope signals.",
     label: "Machine Learning",
     title: "Class 5 Construction Cost Estimation",
     subtitle: "Georgia Tech Practicum · Random Forest · Feature Engineering",
@@ -59,6 +62,9 @@ export const caseStudies = [
   },
   {
     id: "amazon-content",
+    cardTitle: "AI-generated listing updates with keyword safeguards",
+    cardSummary:
+      "An ecommerce content workflow used AI to draft product listing improvements, scored them against keyword ranking signals, and used causal measurement to prove approved updates worked.",
     label: "Analytics Platform",
     title: "Amazon Content Optimization Platform",
     subtitle: "Compliance · Optimization · Causal Measurement · Catalog Defense",
@@ -118,6 +124,9 @@ export const caseStudies = [
   },
   {
     id: "amazon-anomaly",
+    cardTitle: "Early warning system for marketplace performance shifts",
+    cardSummary:
+      "A monitoring platform combined revenue, ad spend, traffic, buy box, and inventory signals so teams could detect meaningful business movement before it became a client-facing surprise.",
     label: "Anomaly Detection",
     title: "Multi-Signal Amazon Anomaly Detection Platform",
     subtitle: "Prophet · Multi-Rule Consensus · Marketplace Monitoring",
@@ -173,6 +182,9 @@ export const caseStudies = [
   },
   {
     id: "wireless-intake",
+    cardTitle: "Production-line intake model for operational bottlenecks",
+    cardSummary:
+      "A high-volume refurbishment operation needed trustworthy fallback logic when scanner signals failed. I built an interpretable model that stabilized downstream capacity planning.",
     label: "Predictive Operations",
     title: "Wireless Carrier — Production Line Device Intake Model",
     subtitle: "Decision Tree · Online Inference · Operational Throughput",

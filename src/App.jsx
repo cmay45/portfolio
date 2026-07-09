@@ -4,70 +4,51 @@ import PrivacySecurity from "./components/PrivacySecurity.jsx";
 import CaseStudyModal from "./components/CaseStudyModal.jsx";
 import { caseStudies } from "./data/caseStudies.js";
 
-const workProcess = [
+const services = [
   {
     title: "01 — Clarify the Current State",
     text: "Map the data sources, reports, workflows, metrics, and business questions already in motion so the real problem becomes visible.",
   },
   {
-    title: "02 — Design the System",
-    text: "Define what needs to be trusted, connected, automated, or rebuilt so the team has a practical path forward.",
+    title: "Data & Analytics Infrastructure",
+    text: "Build the trusted layer between platforms: data marts, semantic logic, measurement rules, and reporting foundations leaders can rely on.",
   },
   {
-    title: "03 — Build the Signal",
-    text: "Create the reporting logic, data foundation, workflow, model, or AI-ready system needed to support better decisions.",
+    title: "AI-Ready Data Systems",
+    text: "Identify where AI can responsibly accelerate analysis, content, forecasting, or operations — and where the data, logic, or governance is not ready yet.",
+  },
+  {
+    title: "Applied Modeling & Signal Design",
+    text: "Create forecasting, scoring, anomaly detection, segmentation, and causal measurement systems tied to real business decisions.",
   },
 ];
 
-const faqs = [
+const symptoms = [
+  "Your systems are connected, but decisions are still unclear.",
+  "People keep asking for “one more pull” because no one trusts the dashboard enough to act.",
+  "Metrics change depending on which platform someone opens.",
+  "AI tools are producing more output than your team can verify.",
+  "Teams are debating definitions instead of making decisions.",
+  "Data science work is being attempted without the statistical judgment, context, or ownership it requires.",
+];
+
+const process = [
   {
-    question: "Do we need to know exactly what we need before reaching out?",
-    answer:
-      "No. Many Signalcraft projects begin with a messy business problem, not a finished technical request. You may know that reporting is unreliable, manual work is slowing the team down, or leadership wants better answers from the data. Part of the work is helping define what should be built and why.",
-  },
-    {
-    question: "Can you help if we already started?",
-    answer:
-      "Yes. Signalcraft can step into existing data work at different depths, from fixing reporting logic and dashboard issues to shaping deeper analytics, automation, modeling, or AI-ready infrastructure. The work starts by understanding what the system is supposed to help the business decide or change. From there, we focus on the pieces that create usable signal — not just more reports.",
-    },
-    {
-    question: "Is this dashboard work, data science, automation, or AI?",
-    answer:
-      "It can involve all of those, but Signalcraft is not limited to one tool or deliverable. The work usually starts with a business question and then moves backward into the data, systems, and logic needed to answer it reliably. Sometimes the right answer is a dashboard. Sometimes it is a cleaner data model, an automated workflow, a forecasting process, or an AI-ready foundation.",
+    title: "1. Diagnose the decision system",
+    text: "Clarify the business question, who owns the decision, what evidence matters, and where current data or AI workflows break down.",
   },
   {
-    question: "What kinds of companies are a good fit?",
-    answer:
-      "Signalcraft is built for growing companies whose data has outgrown spreadsheets, disconnected reports, and manual processes. This is often a good fit for marketing-led, sales-led, operations-heavy, or founder-led businesses that need clearer measurement and better decision support but do not have a full internal data team.",
+    title: "2. Map current vs. ideal state",
+    text: "Review connected sources, definitions, platform logic, model opportunities, AI risks, and the gaps between available data and usable signal.",
   },
   {
-    question: "What problems do you help solve?",
-    answer:
-      "Common problems include unreliable reporting, disconnected marketing and sales data, manual spreadsheet workflows, unclear campaign performance, messy CRM data, inconsistent metrics, lack of source-of-truth reporting, and uncertainty around how to prepare for practical AI use.",
-  },
-  {
-    question: "Do you replace our existing tools?",
-    answer:
-      "Usually, no. Signalcraft often works with the tools a company already uses, such as HubSpot, GA4, ad platforms, spreadsheets, databases, Power BI, Looker, or cloud data systems. The goal is to make the existing data environment more reliable, connected, and useful before adding unnecessary complexity.",
-  },
-  {
-    question: "What does AI-ready mean?",
-    answer:
-      "AI-ready means your data is clean enough, connected enough, and well-defined enough to support useful automation, scoring, forecasting, segmentation, or decision support. AI is only as good as the business logic and data foundation underneath it.",
-  },
-  {
-    question: "Can you work with our agency or internal team?",
-    answer:
-      "Yes. Signalcraft can support internal teams, agency partners, or leadership directly. The work often sits between strategy, analytics, operations, and technical execution, helping translate business needs into systems that can actually be built and used.",
-  },
-  {
-    question: "What is the best first step?",
-    answer:
-      "The best first step is usually a focused audit or discovery project. This creates a map of the current data environment, identifies the biggest gaps, and produces a prioritized roadmap for what to fix, automate, or build next.",
+    title: "3. Build the trusted layer",
+    text: "Design the infrastructure, measurement logic, models, or AI workflow needed to make the decision repeatable and defensible.",
   },
 ];
 
 const work = caseStudies;
+
 
 function OrbitField() {
   return (
@@ -148,7 +129,7 @@ export default function App() {
         </a>
 
         <nav className="navLinks desktopNav" aria-label="Main navigation">
-          <a href="#services">How we work</a>
+          <a href="#services">What we do</a>
           <a href="#work">Case studies</a>
           <a href="#about">About</a>
           <button type="button" onClick={() => setContactOpen(true)}>Contact</button>
@@ -167,7 +148,7 @@ export default function App() {
         </button>
 
         <nav className={`mobileMenu ${menuOpen ? "open" : ""}`} aria-label="Mobile navigation">
-          <a href="#services" onClick={() => setMenuOpen(false)}>How we work</a>
+          <a href="#services" onClick={() => setMenuOpen(false)}>What we do</a>
           <a href="#work" onClick={() => setMenuOpen(false)}>Case studies</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <button
@@ -192,81 +173,107 @@ export default function App() {
             <div className="heroCopy">
               <p className="eyebrow">Signal first. Tools second.</p>
               <h1>
-                Turn data noise into <span>decision-ready signal.</span>
+                Data and AI strategy for teams with <span>connected systems but unclear decisions.</span>
               </h1>
               <p className="heroLead">
-                Signalcraft Analytics helps organizations find the signal hidden inside messy data,
-                unreliable metrics, fragmented systems, and AI-assisted workflows — then build the decision
-                infrastructure needed to act with confidence.
+                Signalcraft helps organizations turn fragmented platforms, conflicting metrics, and AI pressure
+                into trusted decision infrastructure.
               </p>
 
               <div className="heroActions">
-                <a className="primaryBtn" href="#services">
-                  How we work
+                <a className="primaryBtn" href="#approach">
+                  Start with a diagnostic
                 </a>
-                <a className="secondaryBtn" href="#work">View selected work</a>
+                <a className="secondaryBtn" href="#work">View case studies</a>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="view" className="section">
+        <section id="view" className="section symptomSection">
           <div className="wrap split">
             <div>
-              <p className="eyebrow">Our view</p>
-              <h2>AI does not replace judgment. It raises the cost of not having it.</h2>
+              <p className="eyebrow">Symptoms</p>
+              <h2>Modern companies do not usually lack data. They lack direction.</h2>
             </div>
             <div className="bodyCopy">
               <p>
-                When the data is messy and the questions are unclear, AI does not create clarity. It creates more output. Signalcraft helps teams build the foundation underneath better decisions.
+                The problem is not having too few sources. It is having too many connected systems without a trusted
+                decision layer between platforms, teams, metrics, and AI tools.
               </p>
-              <p>
-              When the data is messy, the questions are unclear, or the business context is missing, AI does not create clarity. It creates more output. Signalcraft helps teams build the data foundation, logic, and decision systems needed to make AI useful — not just louder.
-              </p>
+
+              <div className="symptomList">
+                {symptoms.map((symptom) => (
+                  <p key={symptom}>{symptom}</p>
+                ))}
+              </div>
             </div>
+          </div>
+        </section>
+
+        <section id="approach" className="section aiPrincipleSection">
+          <div className="wrap principleBox">
+            <p className="eyebrow">AI-forward, judgment-led</p>
+            <h2>AI does not replace analytical judgment. It exposes where judgment was missing.</h2>
+            <p>
+              Signalcraft helps teams use AI where it belongs: grounded in trusted data, clear definitions,
+              statistical discipline, and business context.
+            </p>
           </div>
         </section>
 
         <section id="services" className="section altSection">
           <div className="wrap">
-            <p className="eyebrow">How we work</p>
-            <h2>Start with what needs to change. Build only what creates signal.</h2>
+            <p className="eyebrow">What we do</p>
+            <h2>Decision infrastructure for teams that need clarity before they scale analytics or AI.</h2>
 
-            <div className="bodyCopy serviceIntro">
-              <p>
-                Most teams do not need another disconnected dashboard or another vague AI idea. They need a clearer
-                way to understand what is happening in the business, where the data is breaking down, and what should
-                be built next.
-              </p>
-              <p>
-                Signalcraft starts by mapping the current state: the tools, reports, workflows, spreadsheets, metrics,
-                and business questions already in motion. From there, we identify what is trustworthy, what is fragile,
-                what is missing, and what is blocking better decisions.
-              </p>
-              <p>
-                Then we turn that clarity into practical systems: operationalizable reporting logic, a shared data foundation,
-                automated workflows, AI-ready datasets, or models that help teams score, forecast, segment, or prioritize.
-              </p>
-            </div>
-
-            <div className="cardGrid processGrid">
-              {workProcess.map((step) => (
-                <article className="serviceCard processCard" key={step.title}>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
+            <div className="cardGrid">
+              {services.map((service) => (
+                <article className="serviceCard" key={service.title}>
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
+        <section className="section processSection">
+          <div className="wrap">
+            <div className="sectionHeaderWithAction">
+              <div>
+                <p className="eyebrow">How we work</p>
+                <h2>Start with the decision, not the tool.</h2>
+              </div>
+              <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
+                Start a conversation
+              </button>
+            </div>
+
+            <div className="processGrid">
+              {process.map((step) => (
+                <article className="processCard" key={step.title}>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </article>
+              ))}
+            </div>
+
+            <p className="processNote">
+              Most engagements begin with a focused diagnostic: clarify the decision, inspect the current data and AI environment,
+              then define the practical roadmap before building anything larger.
+            </p>
+          </div>
+        </section>
+
         <section id="work" className="section">
           <div className="wrap">
-            <p className="eyebrow">Selected work</p>
-            <h2>Real work that turns scattered data into operational clarity.</h2>
+            <p className="eyebrow">Case studies</p>
+            <h2>Business problems solved with data science, AI workflows, and decision infrastructure.</h2>
 
             <p className="sectionIntro">
-              Selected examples are generalized from prior work. Examples are anonymized to protect client and proprietary information.
+              Selected examples are generalized from academic and prior professional work. Client-identifying
+              details and proprietary data have been removed.
             </p>
 
             <div className="workGrid">
@@ -278,30 +285,10 @@ export default function App() {
                   onClick={() => setActiveCaseStudyId(item.id)}
                 >
                   <p className="workLabel">{item.label}</p>
-                  <h3>{item.title}</h3>
-                  <p>{item.summary}</p>
+                  <h3>{item.cardTitle || item.title}</h3>
+                  <p>{item.cardSummary || item.summary}</p>
                   <span className="workCardCta">View case study →</span>
                 </button>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="faq" className="section faqSection">
-          <div className="wrap faqWrap">
-            <p className="eyebrow">FAQ</p>
-            <h2>Questions before the work starts.</h2>
-            <p className="faqIntro">
-              You do not need to have the technical answer before reaching out. Most projects begin with a business
-              problem that needs to be clarified.
-            </p>
-
-            <div className="faqList">
-              {faqs.map((faq) => (
-                <details className="faqItem" key={faq.question}>
-                  <summary>{faq.question}</summary>
-                  <p>{faq.answer}</p>
-                </details>
               ))}
             </div>
           </div>
@@ -310,10 +297,10 @@ export default function App() {
         <section className="section ctaSection">
           <div className="wrap ctaBox">
             <p className="eyebrow">Start here</p>
-            <h2>Bring the messy question.</h2>
+            <h2>Bring the unclear decision.</h2>
             <p>
-              The best place to begin is usually not a dashboard, a model, or an AI workflow. It is the decision you
-              need to make and the evidence required to trust it.
+              The best place to begin is usually not a dashboard, a model, or an AI workflow. It is the decision
+              your team needs to make, the evidence required to trust it, and the system needed to make it repeatable.
             </p>
             <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
               Start a conversation
@@ -325,21 +312,24 @@ export default function App() {
           <div className="wrap split aboutSplit">
             <div>
               <p className="eyebrow">About</p>
-              <h2>Built by someone who knows where signal gets lost.</h2>
+              <h2>Built by someone who understands data, AI, systems, and business consequences.</h2>
             </div>
 
             <div className="bodyCopy aboutCopy">
               <p>
-                Signalcraft Analytics is led by Charlie May, a data scientist and machine learning engineer based in Indianapolis. His work sits where analytics engineering, machine learning, data platforms, and business decision-making meet.
-              </p>
-              <p>              
-                Charlie came to this work through a 12-year career in digital commerce — building systems, leading teams, and being accountable for business results when the data foundation was not built for what the business needed next.
+                Signalcraft Analytics is led by Charlie May, a data scientist and ML engineer based in Indianapolis.
+                His work sits where analytics engineering, machine learning, data platforms, and business decision-making meet.
               </p>
               <p>
-                That experience shaped a practical point of view: start with what needs to change, expose the assumptions underneath the data, and build only what creates clearer decisions.
+                Charlie came to this work through a 12-year career in digital commerce — building systems, running teams,
+                and learning that the most important problems are often buried in the data underneath the work.
               </p>
               <p>
-                He is completing an M.S. in Data Analytics at Georgia Tech and has built production work across forecasting, anomaly detection, causal measurement, pricing, operational modeling, and data infrastructure.
+                He is completing an M.S. in Data Analytics at Georgia Tech and has built production work across forecasting,
+                anomaly detection, causal measurement, pricing, operational modeling, and data infrastructure.
+              </p>
+              <p>
+                The through-line is simple: reduce noise, expose assumptions, and build decision systems people can actually trust.
               </p>
             </div>
           </div>
