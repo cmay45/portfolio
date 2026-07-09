@@ -4,7 +4,7 @@ dist
 .env.local
 .env.*.local
 .DS_Store
-
+.vercel/
 
 AI_CASE_STUDY_COPY_UPDATE.md
 CASE_STUDY_BIG_TLDR_VISUALS.md

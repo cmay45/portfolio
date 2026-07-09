@@ -124,7 +124,7 @@ export default function ContactModal({ open, onClose }) {
         {status === "sent" ? (
           <div className="contactSuccess">
             <h3>Request sent.</h3>
-            <p>Thanks — I’ll review this and follow up about scheduling a discovery call if it looks like a fit.</p>
+            <p>Thanks — I’ll review this and follow up about scheduling a discovery call.</p>
 
             <button className="primaryBtn" type="button" onClick={onClose}>
               Close
@@ -200,13 +200,12 @@ export default function ContactModal({ open, onClose }) {
             </label>
 
             <label>
-              Decision problem
+              Message
               <textarea
                 name="message"
                 required
                 rows={6}
                 maxLength={4000}
-                placeholder="What decision are you trying to make, and where is the current data, reporting, or AI workflow breaking down?"
               />
             </label>
 

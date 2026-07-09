@@ -6,8 +6,8 @@ import { caseStudies } from "./data/caseStudies.js";
 
 const services = [
   {
-    title: "01 — Clarify the Current State",
-    text: "Map the data sources, reports, workflows, metrics, and business questions already in motion so the real problem becomes visible.",
+    title: "Decision Architecture",
+    text: "Map the decisions, owners, definitions, and evidence required so connected systems point toward action instead of more debate.",
   },
   {
     title: "Data & Analytics Infrastructure",
@@ -50,43 +50,16 @@ const process = [
 const work = caseStudies;
 
 
-function OrbitField() {
+function PageOrbitBackground() {
   return (
-    <div className="orbitMap" aria-hidden="true">
-      <svg viewBox="0 0 900 620" preserveAspectRatio="xMidYMid slice">
-        <g transform="translate(560 285)">
-          <g transform="rotate(-14)">
-            <ellipse className="orbit teal" rx="54" ry="18" />
-          </g>
-
-          <g transform="rotate(8)">
-            <ellipse className="orbit white" rx="88" ry="29" />
-            <circle className="twinkleDot dotWhite fade1" cx="-71.2" cy="17.0" r="1.15" />
-          </g>
-
-          <g transform="rotate(-23)">
-            <ellipse className="orbit blue" rx="124" ry="42" />
-          </g>
-
-          <g transform="rotate(16)">
-            <ellipse className="orbit gold" rx="168" ry="58" />
-            <circle className="twinkleDot dotGold fade2" cx="145.5" cy="-29.0" r="1.15" />
-          </g>
-
-          <g transform="rotate(-9)">
-            <ellipse className="orbit teal" rx="214" ry="76" />
-          </g>
-
-          <g transform="rotate(24)">
-            <ellipse className="orbit purple" rx="266" ry="94" />
-          </g>
-
-          <g transform="rotate(-18)">
-            <ellipse className="orbit blue" rx="324" ry="116" />
-            <circle className="twinkleDot dotBlue fade3" cx="247.8" cy="74.7" r="1.15" />
-          </g>
-        </g>
-      </svg>
+    <div className="siteBackground" aria-hidden="true">
+      <div className="siteStars" />
+      <div className="siteGlow siteGlowLeft" />
+      <div className="siteGlow siteGlowRight" />
+      <span className="pageOrbit pageOrbitGold" />
+      <span className="pageOrbit pageOrbitMagenta" />
+      <span className="pageOrbit pageOrbitLavender" />
+      <span className="pageOrbit pageOrbitBlue" />
     </div>
   );
 }
@@ -118,6 +91,8 @@ export default function App() {
 
   return (
     <>
+      <PageOrbitBackground />
+
       <header className="siteHeader">
         <a
           className="brand"
@@ -165,15 +140,16 @@ export default function App() {
 
       <main id="top">
         <section className="hero">
-          <div className="heroArt" />
-          <div className="signalWash" />
-          <OrbitField />
+          <div className="heroArt" aria-hidden="true" />
+          <div className="heroShade" aria-hidden="true" />
+          <div className="heroSunAura" aria-hidden="true" />
+          <div className="signalWash" aria-hidden="true" />
 
           <div className="wrap heroGrid">
             <div className="heroCopy">
               <p className="eyebrow">Signal first. Tools second.</p>
               <h1>
-                Data and AI strategy for teams with <span>connected systems but unclear decisions.</span>
+                 Building data and AI systems for teams ready to find the <span>signal inside connected systems.</span>
               </h1>
               <p className="heroLead">
                 Signalcraft helps organizations turn fragmented platforms, conflicting metrics, and AI pressure
@@ -194,7 +170,7 @@ export default function App() {
           <div className="wrap split">
             <div>
               <p className="eyebrow">Symptoms</p>
-              <h2>Modern companies do not usually lack data. They lack direction.</h2>
+              <h2>Most companies do not usually lack data. They need it aligned with how the business is changing.</h2>
             </div>
             <div className="bodyCopy">
               <p>
@@ -270,11 +246,6 @@ export default function App() {
           <div className="wrap">
             <p className="eyebrow">Case studies</p>
             <h2>Business problems solved with data science, AI workflows, and decision infrastructure.</h2>
-
-            <p className="sectionIntro">
-              Selected examples are generalized from academic and prior professional work. Client-identifying
-              details and proprietary data have been removed.
-            </p>
 
             <div className="workGrid">
               {work.map((item) => (

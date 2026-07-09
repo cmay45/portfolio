@@ -28,6 +28,13 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
 }
 
 a {
@@ -45,6 +52,104 @@ textarea {
   margin: 0 auto;
 }
 
+.siteBackground {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(88,225,207,0.08), transparent 18%),
+    radial-gradient(circle at 95% 18%, rgba(212,150,255,0.06), transparent 22%),
+    linear-gradient(180deg, #010304 0%, #020607 100%);
+}
+
+.siteStars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.9) 0 0.75px, transparent 1.1px),
+    radial-gradient(circle, rgba(124,205,255,0.75) 0 0.6px, transparent 1px);
+  background-size: 132px 132px, 190px 190px;
+  background-position: 8px 12px, 74px 96px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.68), rgba(0,0,0,0.28));
+}
+
+.siteGlow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.42;
+}
+
+.siteGlowLeft {
+  width: 420px;
+  height: 420px;
+  left: -120px;
+  top: 60px;
+  background: rgba(88,225,207,0.08);
+}
+
+.siteGlowRight {
+  width: 500px;
+  height: 500px;
+  right: -180px;
+  top: 220px;
+  background: rgba(212,150,255,0.07);
+}
+
+.pageOrbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  mix-blend-mode: screen;
+  opacity: 0.14;
+}
+
+.pageOrbitGold {
+  width: 980px;
+  height: 620px;
+  right: -360px;
+  top: 260px;
+  border-color: rgba(255,214,128,0.13);
+  transform: rotate(18deg);
+}
+
+.pageOrbitMagenta {
+  width: 1220px;
+  height: 500px;
+  left: -540px;
+  top: 660px;
+  border-color: rgba(226,76,206,0.11);
+  transform: rotate(-17deg);
+}
+
+.pageOrbitLavender {
+  width: 1080px;
+  height: 420px;
+  left: -260px;
+  top: 1220px;
+  border-color: rgba(220,170,255,0.085);
+  transform: rotate(31deg);
+}
+
+.pageOrbitBlue {
+  width: 1180px;
+  height: 460px;
+  right: -420px;
+  top: 1780px;
+  border-color: rgba(124,205,255,0.075);
+  transform: rotate(-22deg);
+}
+
+.siteHeader,
+main,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
 .siteHeader {
   position: sticky;
   top: 0;
@@ -54,7 +159,7 @@ textarea {
   justify-content: space-between;
   padding: 14px clamp(20px, 5vw, 56px);
   border-bottom: 1px solid rgba(238,248,247,0.08);
-  background: rgba(2,6,7,0.76);
+  background: rgba(2,6,7,0.72);
   backdrop-filter: blur(16px);
 }
 
@@ -94,120 +199,85 @@ textarea {
 
 .hero {
   position: relative;
-  min-height: 690px;
+  min-height: 720px;
   display: grid;
   align-items: center;
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at 72% 38%, rgba(88, 225, 207, 0.055), transparent 17%),
-    radial-gradient(circle at 20% 12%, rgba(88, 225, 207, 0.045), transparent 26%),
-    linear-gradient(180deg, #000000 0%, #02090b 54%, #020607 100%);
+    radial-gradient(circle at 70% 50%, rgba(255,214,128,0.07), transparent 13%),
+    linear-gradient(180deg, rgba(0,0,0,0.92) 0%, rgba(1,4,6,0.78) 54%, rgba(2,6,7,0.95) 100%);
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -5;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(1,4,6,0.98) 0%, rgba(1,4,6,0.96) 16%, rgba(1,4,6,0.82) 38%, rgba(1,4,6,0.52) 56%, rgba(1,4,6,0.32) 72%, rgba(1,4,6,0.68) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.20));
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.16;
   background-image:
-    radial-gradient(circle, rgba(255,255,255,0.24) 0 1px, transparent 1.4px),
-    radial-gradient(circle, rgba(88,225,207,0.12) 0 0.8px, transparent 1.2px);
-  background-size: 88px 88px, 137px 137px;
-  background-position: 8px 16px, 44px 62px;
-  opacity: 0.13;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.82), rgba(0,0,0,0.18));
+    radial-gradient(circle, rgba(255,255,255,0.8) 0 0.85px, transparent 1.25px),
+    radial-gradient(circle, rgba(213,157,255,0.65) 0 0.6px, transparent 1px);
+  background-size: 144px 144px, 210px 210px;
+  background-position: 18px 22px, 90px 120px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.82), rgba(0,0,0,0.3));
 }
 
 .heroArt {
   position: absolute;
   inset: 0;
-  z-index: -4;
+  z-index: -5;
   pointer-events: none;
-  opacity: 0.42;
-  overflow: hidden;
+  background-image: url('/signalcraft-orbit-header.png');
+  background-position: 70% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.92;
+  filter: brightness(0.92) saturate(1.05);
 }
 
-.heroArt::before {
-  content: "";
+.heroShade {
   position: absolute;
-  width: 760px;
-  height: 760px;
-  left: 73%;
-  top: 42%;
-  transform: translate(-50%, -50%) rotate(-16deg) scaleX(1.56);
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(1,4,6,0.98) 0%, rgba(1,4,6,0.94) 18%, rgba(1,4,6,0.76) 34%, rgba(1,4,6,0.40) 58%, rgba(1,4,6,0.12) 82%),
+    radial-gradient(circle at 18% 18%, rgba(88,225,207,0.06), transparent 22%);
+}
+
+.heroSunAura {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  left: 72%;
+  top: 49%;
+  z-index: -3;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1px solid rgba(88,225,207,0.10);
-  box-shadow:
-    0 0 0 36px rgba(88,225,207,0),
-    0 0 0 37px rgba(160,255,230,0.055),
-    0 0 0 110px rgba(88,225,207,0),
-    0 0 0 111px rgba(216,162,255,0.045),
-    0 0 0 198px rgba(88,225,207,0),
-    0 0 0 199px rgba(154,243,255,0.042);
-  mask-image: linear-gradient(110deg, transparent 0%, rgba(0,0,0,0.58) 16%, rgba(0,0,0,0.92) 54%, rgba(0,0,0,0.30) 86%, transparent 100%);
+  background: radial-gradient(circle, rgba(255,221,158,0.32) 0%, rgba(255,221,158,0.12) 18%, rgba(255,221,158,0.04) 34%, transparent 65%);
+  filter: blur(14px);
+  pointer-events: none;
 }
 
 .signalWash {
   position: absolute;
   inset: 0;
-  z-index: -3;
+  z-index: -2;
   pointer-events: none;
-  opacity: 0.28;
-  background: linear-gradient(112deg, transparent 0%, rgba(88,225,207,0.032) 42%, transparent 58%);
+  opacity: 0.22;
+  background: linear-gradient(112deg, transparent 0%, rgba(88,225,207,0.024) 42%, transparent 58%);
   mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.16) 28%, rgba(0,0,0,0.72) 62%, transparent 100%);
-}
-
-.orbitMap {
-  position: absolute;
-  inset: -10% -4% -12% 38%;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.82;
-  overflow: visible;
-}
-
-.orbitMap svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: visible;
-}
-
-.orbit {
-  fill: none;
-  stroke-width: 1.15;
-  vector-effect: non-scaling-stroke;
-  mix-blend-mode: screen;
-}
-
-.orbit.teal { stroke: rgba(88,225,207,0.34); }
-.orbit.blue { stroke: rgba(124,205,255,0.24); }
-.orbit.gold { stroke: rgba(255,214,128,0.20); }
-.orbit.purple { stroke: rgba(212,150,255,0.19); }
-.orbit.white { stroke: rgba(238,248,247,0.18); }
-
-.twinkleDot {
-  opacity: 0;
-  animation-name: softPulse;
-  animation-duration: 10s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  will-change: opacity;
-}
-
-.twinkleDot.dotWhite { fill: rgba(238,248,247,0.82); filter: drop-shadow(0 0 2px rgba(238,248,247,0.10)); }
-.twinkleDot.dotGold  { fill: rgba(255,214,128,0.78); filter: drop-shadow(0 0 2px rgba(255,214,128,0.10)); }
-.twinkleDot.dotBlue  { fill: rgba(124,205,255,0.82); filter: drop-shadow(0 0 2px rgba(124,205,255,0.12)); }
-
-.twinkleDot.fade1 { animation-delay: 0s; }
-.twinkleDot.fade2 { animation-delay: 3.2s; }
-.twinkleDot.fade3 { animation-delay: 6.4s; }
-
-@keyframes softPulse {
-  0%, 20%, 100% { opacity: 0; }
-  50% { opacity: 0.52; }
-  72% { opacity: 0.05; }
 }
 
 .heroGrid {
@@ -217,7 +287,7 @@ textarea {
   align-items: center;
   position: relative;
   z-index: 2;
-  padding: 104px 0 82px;
+  padding: 112px 0 86px;
 }
 
 .heroCopy {
@@ -238,7 +308,7 @@ textarea {
 .hero h1 {
   margin: 0;
   max-width: 760px;
-  font-size: clamp(3.2rem, 8vw, 7.4rem);
+  font-size: clamp(2.6rem, 6.8vw, 6.2rem);
   line-height: 0.9;
   letter-spacing: -0.07em;
 }
@@ -294,14 +364,18 @@ textarea {
 }
 
 .section {
+  position: relative;
+  z-index: 1;
   padding: 96px 0;
   border-top: 1px solid rgba(238,248,247,0.07);
+  background:
+    linear-gradient(180deg, rgba(2,6,7,0.82), rgba(2,6,7,0.74));
 }
 
 .altSection {
   background:
     radial-gradient(circle at 15% 0%, rgba(88,225,207,0.055), transparent 26%),
-    rgba(255,255,255,0.018);
+    linear-gradient(180deg, rgba(2,6,7,0.86), rgba(2,6,7,0.76));
 }
 
 .split {
@@ -315,7 +389,7 @@ textarea {
 .legalPage h1 {
   margin: 0;
   max-width: 760px;
-  font-size: clamp(2rem, 4.8vw, 4.2rem);
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
   line-height: 0.98;
   letter-spacing: -0.045em;
 }
@@ -347,7 +421,8 @@ textarea {
     linear-gradient(135deg, rgba(88,225,207,0.105), rgba(124,205,255,0.045) 38%, rgba(212,150,255,0.055) 100%),
     radial-gradient(circle at 100% 0%, rgba(88,225,207,0.10), transparent 34%),
     rgba(255,255,255,0.035);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.34);
+  backdrop-filter: blur(8px);
 }
 
 .serviceCard,
@@ -395,7 +470,7 @@ textarea {
 
 .ctaBox h2 {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 4.6rem);
+  font-size: clamp(1.8rem, 4.2vw, 3.8rem);
   letter-spacing: -0.055em;
   line-height: 0.95;
 }
@@ -613,13 +688,44 @@ textarea {
     padding: 86px 0 72px;
   }
 
-  .orbitMap {
-    inset: -3% -90% -8% 8%;
-    opacity: 0.42;
+  .siteBackground {
+    opacity: 0.86;
+  }
+
+  .pageOrbitGold {
+    width: 760px;
+    height: 480px;
+    right: -360px;
+    top: 300px;
+  }
+
+  .pageOrbitMagenta,
+  .pageOrbitLavender,
+  .pageOrbitBlue {
+    width: 860px;
+  }
+
+  .heroArt {
+    background-position: 76% 48%;
+    background-size: auto 100%;
+    opacity: 0.78;
+  }
+
+  .heroShade {
+    background:
+      linear-gradient(180deg, rgba(1,4,6,0.9) 0%, rgba(1,4,6,0.58) 54%, rgba(1,4,6,0.76) 100%),
+      linear-gradient(90deg, rgba(1,4,6,0.92) 0%, rgba(1,4,6,0.82) 36%, rgba(1,4,6,0.20) 100%);
+  }
+
+  .heroSunAura {
+    width: 320px;
+    height: 320px;
+    left: 72%;
+    top: 44%;
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 15vw, 5.2rem);
+    font-size: clamp(2.5rem, 12vw, 4.4rem);
   }
 
   .split,
@@ -843,9 +949,7 @@ textarea {
 
 .caseBody {
   padding: 18px 48px 48px;
-  display: grid;
-  grid-template-columns: 0.9fr 1.35fr;
-  gap: 22px;
+  display: block;
 }
 
 .caseSideRail {
@@ -900,6 +1004,13 @@ textarea {
 
 .caseContentStack {
   display: grid;
+  gap: 14px;
+  max-width: 100%;
+}
+
+.caseSignalMethodGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -995,7 +1106,8 @@ textarea {
 
   .caseSectionGrid,
   .caseMetricRow,
-  .caseMetaStrip {
+  .caseMetaStrip,
+  .caseSignalMethodGrid {
     grid-template-columns: 1fr;
   }
 

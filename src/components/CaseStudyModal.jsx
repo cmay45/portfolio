@@ -109,31 +109,6 @@ export default function CaseStudyModal({ study, onClose, onContact }) {
         </section>
 
         <section className="caseBody">
-          <aside className="caseSideRail">
-            <div className="caseRailPanel">
-              <h4>Project type</h4>
-              <p>{study.projectType}</p>
-            </div>
-
-            <div className="caseRailPanel">
-              <h4>Signals used</h4>
-              <div className="caseTagList">
-                {study.signals.map((signal) => (
-                  <span className="caseTag" key={signal}>{signal}</span>
-                ))}
-              </div>
-            </div>
-
-            <div className="caseRailPanel">
-              <h4>Methods</h4>
-              <div className="caseTagList">
-                {study.methods.map((method) => (
-                  <span className="caseTag" key={method}>{method}</span>
-                ))}
-              </div>
-            </div>
-          </aside>
-
           <div className="caseContentStack">
             <div className="caseSectionGrid">
               <section className="caseContentPanel">
@@ -174,14 +149,30 @@ export default function CaseStudyModal({ study, onClose, onContact }) {
               <h3>Impact</h3>
               <p>{study.impact}</p>
             </section>
+
+            <div className="caseSignalMethodGrid">
+              <div className="caseRailPanel">
+                <h4>Signals used</h4>
+                <div className="caseTagList">
+                  {study.signals.map((signal) => (
+                    <span className="caseTag" key={signal}>{signal}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="caseRailPanel">
+                <h4>Methods</h4>
+                <div className="caseTagList">
+                  {study.methods.map((method) => (
+                    <span className="caseTag" key={method}>{method}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <section className="caseFooter">
-          <p>
-            Selected work samples are generalized from academic and prior professional work.
-            Client-identifying details and proprietary data have been removed.
-          </p>
           <button className="primaryBtn" type="button" onClick={onContact}>
             Discuss a similar problem
           </button>
