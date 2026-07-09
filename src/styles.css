@@ -460,10 +460,6 @@ main,
   letter-spacing: 0.12em;
 }
 
-.ctaSection {
-  padding-top: 0;
-}
-
 .ctaBox {
   padding: clamp(30px, 6vw, 58px);
 }
@@ -1315,7 +1311,6 @@ main,
 }
 
 .aboutSection {
-  padding-top: 0;
   background:
     radial-gradient(circle at 88% 4%, rgba(88,225,207,0.055), transparent 28%),
     radial-gradient(circle at 12% 46%, rgba(124,205,255,0.038), transparent 34%);
@@ -1424,10 +1419,6 @@ main,
   line-height: 1.45;
 }
 
-.aiPrincipleSection {
-  padding-top: 0;
-}
-
 .principleBox {
   border: 1px solid rgba(88,225,207,0.16);
   border-radius: 28px;
@@ -1453,10 +1444,6 @@ main,
   color: rgba(238,248,247,0.74);
   font-size: 1.12rem;
   line-height: 1.65;
-}
-
-.processSection {
-  padding-top: 0;
 }
 
 .sectionHeaderWithAction {
