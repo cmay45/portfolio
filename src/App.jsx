@@ -6,44 +6,62 @@ import { caseStudies } from "./data/caseStudies.js";
 
 const services = [
   {
-    title: "Decision Architecture",
-    text: "Map the decisions, owners, definitions, and evidence required so connected systems point toward action instead of more debate.",
+    title: "Connect the Data",
+    text: "Bring customer, marketing, CRM, sales, inventory, and operational data into a trustworthy analytical foundation.",
   },
   {
-    title: "Data & Analytics Infrastructure",
-    text: "Build the trusted layer between platforms: data marts, semantic logic, measurement rules, and reporting foundations leaders can rely on.",
+    title: "Find the Signal",
+    text: "Use measurement, forecasting, experimentation, segmentation, and machine learning to understand what customer behavior is actually telling you.",
   },
   {
-    title: "AI-Ready Data Systems",
-    text: "Identify where AI can responsibly accelerate analysis, content, forecasting, or operations — and where the data, logic, or governance is not ready yet.",
+    title: "Operationalize the Decision",
+    text: "Turn analysis into repeatable systems that help marketing, sales, operations, and finance decide what to do next.",
   },
   {
-    title: "Applied Modeling & Signal Design",
-    text: "Create forecasting, scoring, anomaly detection, segmentation, and causal measurement systems tied to real business decisions.",
+    title: "Scale the System",
+    text: "Move successful analytics and AI from one-off solutions into reusable, governed systems that can support more teams, more decisions, and more complexity over time.",
   },
 ];
 
-const symptoms = [
-  "Your systems are connected, but decisions are still unclear.",
-  "People keep asking for “one more pull” because no one trusts the dashboard enough to act.",
-  "Metrics change depending on which platform someone opens.",
-  "AI tools are producing more output than your team can verify.",
-  "Teams are debating definitions instead of making decisions.",
-  "Data science work is being attempted without the statistical judgment, context, or ownership it requires.",
+const businessIntelligence = [
+  {
+    title: "Attribution → Channel Strategy",
+    text: "Understand how paid media, organic channels, dealers, sales teams, and other touchpoints cooperate or compete to create demand.",
+  },
+  {
+    title: "Lead Scoring → Demand & Pipeline Intelligence",
+    text: "Turn customer behavior and propensity into a stronger sales prioritization tool and a forward-looking signal for pipeline health and demand planning.",
+  },
+  {
+    title: "Forecasting → Marketing Investment",
+    text: "Connect historical performance, seasonality, demand signals, and channel activity to right-size spend and improve the overall marketing mix.",
+  },
+  {
+    title: "Inventory → Demand Activation",
+    text: "Use product availability, geography, pipeline, and customer demand to identify where marketing should create more demand — and where it should not.",
+  },
+  {
+    title: "Segmentation → Commercial Strategy",
+    text: "Turn customer behavior into meaningful groups that can inform sales coverage, lifecycle strategy, product planning, and customer economics.",
+  },
+  {
+    title: "Experimentation → Incremental Growth",
+    text: "Separate correlation from causation so leaders can understand whether marketing activity actually changed customer behavior and created incremental value.",
+  },
 ];
 
 const process = [
   {
-    title: "1. Diagnose the decision system",
-    text: "Clarify the business question, who owns the decision, what evidence matters, and where current data or AI workflows break down.",
+    title: "1. Start with the decision",
+    text: "Define the business decision that needs to improve, who owns it, what action should change, and what evidence is required to act with confidence.",
   },
   {
-    title: "2. Map current vs. ideal state",
-    text: "Review connected sources, definitions, platform logic, model opportunities, AI risks, and the gaps between available data and usable signal.",
+    title: "2. Build trust in the signal",
+    text: "Trace the data, expose assumptions, establish shared definitions, and determine what the available evidence can responsibly support.",
   },
   {
-    title: "3. Build the trusted layer",
-    text: "Design the infrastructure, measurement logic, models, or AI workflow needed to make the decision repeatable and defensible.",
+    title: "3. Put intelligence into the workflow",
+    text: "Use the right level of analytics, forecasting, machine learning, or AI and operationalize it so the result becomes a repeatable part of how the business works.",
   },
 ];
 
@@ -149,11 +167,10 @@ export default function App() {
             <div className="heroCopy">
               <p className="eyebrow">Signal first. Tools second.</p>
               <h1>
-                 Building data and AI systems for teams ready to find the <span>signal inside connected platforms.</span>
+                 Building data and AI systems that <span>connect marketing to the business.</span>
               </h1>
               <p className="heroLead">
-                Signalcraft helps organizations turn fragmented platforms, conflicting metrics, and AI pressure
-                into trusted decision infrastructure.
+                Signalcraft helps companies turn customer and marketing data into trusted signals for sales, operations, and finance — from pipeline prioritization and demand planning to inventory decisions and financial forecasting.
               </p>
 
               <div className="heroActions">
@@ -169,39 +186,42 @@ export default function App() {
         <section id="view" className="section symptomSection">
           <div className="wrap split">
             <div>
-              <p className="eyebrow">Symptoms</p>
-              <h2>Most companies do not usually lack data. They need it aligned with how the business is changing.</h2>
+              <p className="eyebrow">Where marketing becomes business intelligence</p>
+              <h2>The best marketing data should not stop in marketing.</h2>
             </div>
             <div className="bodyCopy">
               <p>
-                The problem is not having too few sources. It is having too many connected systems without a trusted
-                decision layer between platforms, teams, metrics, and AI tools.
+                Marketing sits close to the customer and often sees changes in demand before they appear in booked revenue.
+                Connected to sales, inventory, operational, and financial data, those signals can help the whole business decide what to do next.
               </p>
 
               <div className="symptomList">
-                {symptoms.map((symptom) => (
-                  <p key={symptom}>{symptom}</p>
+                {businessIntelligence.map((item) => (
+                  <p key={item.title}>
+                    <strong>{item.title}</strong><br />
+                    {item.text}
+                  </p>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section id="approach" className="section aiPrincipleSection">
+        {/* <section id="approach" className="section aiPrincipleSection">
           <div className="wrap principleBox">
-            <p className="eyebrow">AI-forward, judgment-led</p>
-            <h2>AI does not replace analytical judgment. It exposes where judgment was missing.</h2>
+            <p className="eyebrow">The idea</p>
+            <h2>Marketing sees demand early. Signalcraft makes that signal usable.</h2>
             <p>
-              Signalcraft helps teams use AI where it belongs: grounded in trusted data, clear definitions,
-              statistical discipline, and business context.
+              Customer behavior can become a stronger input to sales prioritization, demand planning, inventory strategy,
+              marketing investment, and financial forecasting when the underlying data and decision logic are built to be trusted.
             </p>
           </div>
-        </section>
+        </section> */}
 
         <section id="services" className="section altSection">
           <div className="wrap">
             <p className="eyebrow">What we do</p>
-            <h2>Decision infrastructure for teams that need clarity before they scale analytics or AI.</h2>
+            <h2>Marketing sees demand early. We make that signal useful to the rest of the business.</h2>
 
             <div className="cardGrid">
               {services.map((service) => (
@@ -236,8 +256,8 @@ export default function App() {
             </div>
 
             <p className="processNote">
-              Most engagements begin with a focused diagnostic: clarify the decision, inspect the current data and AI environment,
-              then define the practical roadmap before building anything larger.
+              Sometimes the answer is SQL. Sometimes forecasting. Sometimes machine learning or an LLM.
+              Complexity is useful only when it improves the decision and can be sustained by the organization.
             </p>
           </div>
         </section>
@@ -245,7 +265,7 @@ export default function App() {
         <section id="work" className="section">
           <div className="wrap">
             <p className="eyebrow">Case studies</p>
-            <h2>Business problems solved with data science, AI workflows, and decision infrastructure.</h2>
+            <h2>Built for business problems that dashboards alone could not solve.</h2>
 
             <div className="workGrid">
               {work.map((item) => (
@@ -268,10 +288,10 @@ export default function App() {
         <section className="section ctaSection">
           <div className="wrap ctaBox">
             <p className="eyebrow">Start here</p>
-            <h2>Bring the unclear decision.</h2>
+            <h2>Your marketing data may already contain signals the rest of your business needs.</h2>
             <p>
-              The best place to begin is usually not a dashboard, a model, or an AI workflow. It is the decision
-              your team needs to make, the evidence required to trust it, and the system needed to make it repeatable.
+              Start with a focused diagnostic to identify where customer and marketing data could improve decisions
+              across sales, operations, and finance — and what has to be true for those signals to be trusted.
             </p>
             <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
               Start a conversation
@@ -283,24 +303,25 @@ export default function App() {
           <div className="wrap split aboutSplit">
             <div>
               <p className="eyebrow">About</p>
-              <h2>Built by someone who understands data, AI, systems, and business consequences.</h2>
+              <h2>Business thinking first. Technical depth when the problem requires it.</h2>
             </div>
 
             <div className="bodyCopy aboutCopy">
               <p>
-                Signalcraft Analytics is led by Charlie May, a data scientist and ML engineer based in Indianapolis.
-                His work sits where analytics engineering, machine learning, data platforms, and business decision-making meet.
+                Signalcraft Analytics is led by Charlie May, whose career has spanned digital strategy, marketing analytics,
+                data science, data engineering, and applied AI.
               </p>
               <p>
-                Charlie came to this work through a 12-year career in digital commerce — building systems, running teams,
-                and learning that the most important problems are often buried in the data underneath the work.
+                That progression shapes how Signalcraft works: start with the business question, understand the customer and
+                operational context, and then build the data and intelligence necessary to improve the decision.
               </p>
               <p>
-                He is completing an M.S. in Data Analytics at Georgia Tech and has built production work across forecasting,
-                anomaly detection, causal measurement, pricing, operational modeling, and data infrastructure.
+                Charlie is completing an M.S. in Data Analytics at Georgia Tech and has built production work across forecasting,
+                anomaly detection, causal measurement, pricing, operational modeling, machine learning, and data infrastructure.
               </p>
               <p>
-                The through-line is simple: reduce noise, expose assumptions, and build decision systems people can actually trust.
+                The goal is not more dashboards, more models, or more AI. It is better information moving between the people
+                responsible for demand, revenue, operations, and financial performance.
               </p>
             </div>
           </div>
