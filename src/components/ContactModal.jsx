@@ -112,19 +112,19 @@ export default function ContactModal({ open, onClose }) {
           ×
         </button>
 
-        <p className="eyebrow">Schedule a discovery call</p>
+        <p className="eyebrow">Schedule an intro call</p>
 
         <h2 id="contact-title">Request a Signalcraft Diagnostic Call.</h2>
 
         <p className="contactIntro">
-          Use this form to request a discovery call. The first conversation is focused on the decision you need to make,
+          Use this form to request an intro call. The first conversation is focused on the decision you need to make,
           where the current data or AI system is breaking down, and whether a Signalcraft diagnostic is the right next step.
         </p>
 
         {status === "sent" ? (
           <div className="contactSuccess">
             <h3>Request sent.</h3>
-            <p>Thanks — I’ll review this and follow up about scheduling a discovery call.</p>
+            <p>Thanks — I’ll review this and follow up about scheduling a call.</p>
 
             <button className="primaryBtn" type="button" onClick={onClose}>
               Close
@@ -235,7 +235,7 @@ export default function ContactModal({ open, onClose }) {
               type="submit"
               disabled={status === "submitting"}
             >
-              {status === "submitting" ? "Sending…" : "Request discovery call"}
+              {status === "submitting" ? "Sending…" : "Request intro call"}
             </button>
           </form>
         )}

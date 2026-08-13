@@ -167,7 +167,7 @@ export default function App() {
             <div className="heroCopy">
               <p className="eyebrow">Signal first. Tools second.</p>
               <h1>
-                 Building data and AI systems that <span>connect marketing to the business.</span>
+                 Turning marketing and customer data into <span>intelligence for sales, operations, and finance.</span>
               </h1>
               <p className="heroLead">
                 Signalcraft helps companies turn customer and marketing data into trusted signals for sales, operations, and finance — from pipeline prioritization and demand planning to inventory decisions and financial forecasting.
@@ -221,7 +221,7 @@ export default function App() {
         <section id="services" className="section altSection">
           <div className="wrap">
             <p className="eyebrow">What we do</p>
-            <h2>Marketing sees demand early. We make that signal useful to the rest of the business.</h2>
+            <h2>Marketing often sees changes in customer demand before they appear elsewhere in the business. Signalcraft helps translate those signals into intelligence sales, operations, and finance can use.</h2>
 
             <div className="cardGrid">
               {services.map((service) => (
