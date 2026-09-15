@@ -4,50 +4,21 @@ import PrivacySecurity from "./components/PrivacySecurity.jsx";
 import CaseStudyModal from "./components/CaseStudyModal.jsx";
 import { caseStudies } from "./data/caseStudies.js";
 
-const services = [
-  {
-    title: "Connect the Data",
-    text: "Bring customer, marketing, CRM, sales, inventory, and operational data into a trustworthy analytical foundation.",
-  },
-  {
-    title: "Find the Signal",
-    text: "Use measurement, forecasting, experimentation, segmentation, and machine learning to understand what customer behavior is actually telling you.",
-  },
-  {
-    title: "Operationalize the Decision",
-    text: "Turn analysis into repeatable systems that help marketing, sales, operations, and finance decide what to do next.",
-  },
-  {
-    title: "Scale the System",
-    text: "Move successful analytics and AI from one-off solutions into reusable, governed systems that can support more teams, more decisions, and more complexity over time.",
-  },
+const symptoms = [
+  "Your CRM says pipeline is healthy, but sales does not trust it.",
+  "Marketing, sales, operations, and finance have different versions of the same number.",
+  "You have dashboards everywhere, but the real decision still happens in a spreadsheet.",
+  "Demand is changing before your planning and forecasting systems are detecting it.",
+  "Your team keeps asking analysts for another data pull instead of trusting what already exists.",
+  "You want to use AI or automation, but you do not trust the underlying data enough to act on it.",
 ];
 
-const businessIntelligence = [
-  {
-    title: "Attribution → Channel Strategy",
-    text: "Understand how paid media, organic channels, dealers, sales teams, and other touchpoints cooperate or compete to create demand.",
-  },
-  {
-    title: "Lead Scoring → Demand & Pipeline Intelligence",
-    text: "Turn customer behavior and propensity into a stronger sales prioritization tool and a forward-looking signal for pipeline health and demand planning.",
-  },
-  {
-    title: "Forecasting → Marketing Investment",
-    text: "Connect historical performance, seasonality, demand signals, and channel activity to right-size spend and improve the overall marketing mix.",
-  },
-  {
-    title: "Inventory → Demand Activation",
-    text: "Use product availability, geography, pipeline, and customer demand to identify where marketing should create more demand — and where it should not.",
-  },
-  {
-    title: "Segmentation → Commercial Strategy",
-    text: "Turn customer behavior into meaningful groups that can inform sales coverage, lifecycle strategy, product planning, and customer economics.",
-  },
-  {
-    title: "Experimentation → Incremental Growth",
-    text: "Separate correlation from causation so leaders can understand whether marketing activity actually changed customer behavior and created incremental value.",
-  },
+const diagnosticOutputs = [
+  "The decision to improve and who owns it",
+  "The systems, data, and definitions influencing it",
+  "What signals can be trusted — and what cannot yet",
+  "Analytics, forecasting, automation, or AI opportunities worth pursuing",
+  "The smallest practical next step with a clear business purpose",
 ];
 
 const process = [
@@ -56,16 +27,22 @@ const process = [
     text: "Define the business decision that needs to improve, who owns it, what action should change, and what evidence is required to act with confidence.",
   },
   {
-    title: "2. Build trust in the signal",
-    text: "Trace the data, expose assumptions, establish shared definitions, and determine what the available evidence can responsibly support.",
+    title: "2. Establish trust in the signal",
+    text: "Trace the data, expose assumptions, resolve definition conflicts, and determine what the available evidence can responsibly support.",
   },
   {
-    title: "3. Put intelligence into the workflow",
-    text: "Use the right level of analytics, forecasting, machine learning, or AI and operationalize it so the result becomes a repeatable part of how the business works.",
+    title: "3. Build the smallest useful solution",
+    text: "Use the right level of analytics, forecasting, machine learning, or AI to improve the decision without adding complexity for its own sake.",
+  },
+  {
+    title: "4. Put it into the workflow",
+    text: "Operationalize what works so the signal becomes a repeatable part of how sales, marketing, operations, or finance actually makes decisions.",
   },
 ];
 
-const work = caseStudies;
+const work = ["amazon-anomaly", "wireless-intake", "amazon-content", "construction-cost"]
+  .map((id) => caseStudies.find((study) => study.id === id))
+  .filter(Boolean);
 
 
 function PageOrbitBackground() {
@@ -122,7 +99,7 @@ export default function App() {
         </a>
 
         <nav className="navLinks desktopNav" aria-label="Main navigation">
-          <a href="#services">What we do</a>
+          <a href="#services">How we work</a>
           <a href="#work">Case studies</a>
           <a href="#about">About</a>
           <button type="button" onClick={() => setContactOpen(true)}>Contact</button>
@@ -141,7 +118,7 @@ export default function App() {
         </button>
 
         <nav className={`mobileMenu ${menuOpen ? "open" : ""}`} aria-label="Mobile navigation">
-          <a href="#services" onClick={() => setMenuOpen(false)}>What we do</a>
+          <a href="#services" onClick={() => setMenuOpen(false)}>How we work</a>
           <a href="#work" onClick={() => setMenuOpen(false)}>Case studies</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <button
@@ -167,16 +144,16 @@ export default function App() {
             <div className="heroCopy">
               <p className="eyebrow">Signal first. Tools second.</p>
               <h1>
-                 Turning marketing and customer data into <span>intelligence for sales, operations, and finance.</span>
+                Turning customer and marketing data into <span>trusted signals for revenue, demand, inventory, and growth.</span>
               </h1>
               <p className="heroLead">
-                Signalcraft helps companies turn customer and marketing data into trusted signals for sales, operations, and finance — from pipeline prioritization and demand planning to inventory decisions and financial forecasting.
+                Signalcraft helps companies connect customer and commercial behavior to the decisions that follow — across sales, operations, and finance. Start with one consequential decision, determine what evidence can be trusted, and build only what improves the decision.
               </p>
 
               <div className="heroActions">
-                <a className="primaryBtn" href="#approach">
-                  Start with a diagnostic
-                </a>
+                <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
+                  Bring the unclear decision
+                </button>
                 <a className="secondaryBtn" href="#work">View case studies</a>
               </div>
             </div>
@@ -186,67 +163,54 @@ export default function App() {
         <section id="view" className="section symptomSection">
           <div className="wrap split">
             <div>
-              <p className="eyebrow">Where marketing becomes business intelligence</p>
-              <h2>The best marketing data should not stop in marketing.</h2>
+              <p className="eyebrow">Does this sound familiar?</p>
+              <h2>The problem usually shows up before anyone calls it an analytics problem.</h2>
             </div>
             <div className="bodyCopy">
               <p>
-                Marketing sits close to the customer and often sees changes in demand before they appear in booked revenue.
-                Connected to sales, inventory, operational, and financial data, those signals can help the whole business decide what to do next.
+                Signalcraft is most useful when the business has plenty of data but still lacks confidence in an important decision.
               </p>
 
               <div className="symptomList">
-                {businessIntelligence.map((item) => (
-                  <p key={item.title}>
-                    <strong>{item.title}</strong><br />
-                    {item.text}
-                  </p>
+                {symptoms.map((symptom) => (
+                  <p key={symptom}>{symptom}</p>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* <section id="approach" className="section aiPrincipleSection">
-          <div className="wrap principleBox">
-            <p className="eyebrow">The idea</p>
-            <h2>Marketing sees demand early. Signalcraft makes that signal usable.</h2>
-            <p>
-              Customer behavior can become a stronger input to sales prioritization, demand planning, inventory strategy,
-              marketing investment, and financial forecasting when the underlying data and decision logic are built to be trusted.
-            </p>
-          </div>
-        </section> */}
+        <section id="diagnostic" className="section diagnosticSection">
+          <div className="wrap diagnosticBox">
+            <div className="diagnosticIntro">
+              <p className="eyebrow">The front door</p>
+              <h2>Start with one decision your team does not fully trust.</h2>
+              <p>
+                A Signalcraft Decision Diagnostic is a focused engagement designed to determine what evidence exists, what can be trusted, where the gaps are, and whether analytics or AI can materially improve the decision.
+              </p>
+              <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
+                Bring the unclear decision
+              </button>
+            </div>
 
-        <section id="services" className="section altSection">
-          <div className="wrap">
-            <p className="eyebrow">What we do</p>
-            <h2>Marketing often sees changes in customer demand before they appear elsewhere in the business. Signalcraft helps translate those signals into intelligence sales, operations, and finance can use.</h2>
-
-            <div className="cardGrid">
-              {services.map((service) => (
-                <article className="serviceCard" key={service.title}>
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                </article>
+            <div className="diagnosticDeliverables">
+              <p className="diagnosticLabel">What the diagnostic clarifies</p>
+              {diagnosticOutputs.map((output) => (
+                <div className="diagnosticItem" key={output}>
+                  <span aria-hidden="true">→</span>
+                  <p>{output}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="section processSection">
+        <section id="services" className="section altSection">
           <div className="wrap">
-            <div className="sectionHeaderWithAction">
-              <div>
-                <p className="eyebrow">How we work</p>
-                <h2>Start with the decision, not the tool.</h2>
-              </div>
-              <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
-                Start a conversation
-              </button>
-            </div>
+            <p className="eyebrow">How Signalcraft works</p>
+            <h2>Start with the decision. Earn trust in the signal. Then build only what the business can use.</h2>
 
-            <div className="processGrid">
+            <div className="processGrid processGridFour">
               {process.map((step) => (
                 <article className="processCard" key={step.title}>
                   <h3>{step.title}</h3>
@@ -256,8 +220,7 @@ export default function App() {
             </div>
 
             <p className="processNote">
-              Sometimes the answer is SQL. Sometimes forecasting. Sometimes machine learning or an LLM.
-              Complexity is useful only when it improves the decision and can be sustained by the organization.
+              Sometimes the answer is SQL. Sometimes forecasting. Sometimes machine learning or an LLM. Complexity is useful only when it improves the decision and can be sustained by the organization.
             </p>
           </div>
         </section>
@@ -287,14 +250,13 @@ export default function App() {
 
         <section className="section ctaSection">
           <div className="wrap ctaBox">
-            <p className="eyebrow">Start here</p>
-            <h2>Your marketing data may already contain signals the rest of your business needs.</h2>
+            <p className="eyebrow">Bring the unclear decision</p>
+            <h2>Start with the decision your team keeps revisiting, debating, or working around.</h2>
             <p>
-              Start with a focused diagnostic to identify where customer and marketing data could improve decisions
-              across sales, operations, and finance — and what has to be true for those signals to be trusted.
+              Signalcraft will help determine what evidence exists, what can be trusted, what is missing, and the smallest practical change that could improve the decision.
             </p>
             <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
-              Start a conversation
+              Bring the unclear decision
             </button>
           </div>
         </section>
@@ -302,26 +264,22 @@ export default function App() {
         <section id="about" className="section aboutSection">
           <div className="wrap split aboutSplit">
             <div>
-              <p className="eyebrow">About</p>
-              <h2>Business thinking first. Technical depth when the problem requires it.</h2>
+              <p className="eyebrow">Founder-led. Hands-on.</p>
+              <h2>Business judgment first. Technical depth when the decision requires it.</h2>
             </div>
 
             <div className="bodyCopy aboutCopy">
               <p>
-                Signalcraft Analytics is led by Charlie May, whose career has spanned digital strategy, marketing analytics,
-                data science, data engineering, and applied AI.
+                Signalcraft Analytics is led by Charlie May. His career began in digital commerce, marketing, and business leadership before moving deliberately into hands-on analytics, data engineering, machine learning, and applied AI.
               </p>
               <p>
-                That progression shapes how Signalcraft works: start with the business question, understand the customer and
-                operational context, and then build the data and intelligence necessary to improve the decision.
+                That path matters to clients: the work starts with the commercial or operational decision, not with a preferred technology. The same person helping define the problem can trace the data, test the signal, build the model, and help put the result into a real workflow.
               </p>
               <p>
-                Charlie is completing an M.S. in Data Analytics at Georgia Tech and has built production work across forecasting,
-                anomaly detection, causal measurement, pricing, operational modeling, machine learning, and data infrastructure.
+                Charlie is completing an M.S. in Analytics at Georgia Tech, formalizing the engineering, statistics, and analytical methods behind work spanning forecasting, anomaly detection, causal measurement, operational modeling, machine learning, and cloud data infrastructure.
               </p>
               <p>
-                The goal is not more dashboards, more models, or more AI. It is better information moving between the people
-                responsible for demand, revenue, operations, and financial performance.
+                The goal is not more dashboards, more models, or more AI. It is better evidence moving between the people responsible for demand, revenue, operations, and financial performance.
               </p>
             </div>
           </div>

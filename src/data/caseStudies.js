@@ -1,9 +1,9 @@
 export const caseStudies = [
   {
     id: "construction-cost",
-    cardTitle: "AI-assisted cost estimates from limited project inputs",
+    cardTitle: "Earlier construction estimates without false precision",
     cardSummary:
-      "A construction estimating workflow needed earlier cost ranges without false precision. I built the modeling layer that grounded AI-generated estimates in historical cost, geography, inflation, and scope signals.",
+      "Early-stage estimates had too little scope for confident pricing. I rebuilt the modeling layer around historical cost, geography, inflation, and scope signals — improving R² 176% from the inherited drifted baseline and keeping 95% of predictions within the Class 5 range.",
     label: "Machine Learning",
     title: "Class 5 Construction Cost Estimation",
     subtitle: "Georgia Tech Practicum · Random Forest · Feature Engineering",
@@ -62,9 +62,9 @@ export const caseStudies = [
   },
   {
     id: "amazon-content",
-    cardTitle: "AI-generated listing updates with keyword safeguards",
+    cardTitle: "Faster listing optimization with proof and guardrails",
     cardSummary:
-      "An ecommerce content workflow used AI to draft product listing improvements, scored them against keyword ranking signals, and used causal measurement to prove approved updates worked.",
+      "AI could speed up product-content changes, but uncontrolled edits risked search performance. I built a governed workflow that generated drafts, protected keyword relevance, and used causal measurement across 16 metrics to prove whether approved changes created lift.",
     label: "Analytics Platform",
     title: "Amazon Content Optimization Platform",
     subtitle: "Compliance · Optimization · Causal Measurement · Catalog Defense",
@@ -124,9 +124,9 @@ export const caseStudies = [
   },
   {
     id: "amazon-anomaly",
-    cardTitle: "Early warning system for marketplace performance shifts",
+    cardTitle: "Detect marketplace problems before they become surprises",
     cardSummary:
-      "A monitoring platform combined revenue, ad spend, traffic, buy box, and inventory signals so teams could detect meaningful business movement before it became a client-facing surprise.",
+      "Revenue, traffic, ad spend, buy box, and inventory were monitored separately, making meaningful shifts easy to miss. I combined them into a multi-signal warning system that surfaced actionable movement before it became a client-facing surprise.",
     label: "Anomaly Detection",
     title: "Multi-Signal Amazon Anomaly Detection Platform",
     subtitle: "Prophet · Multi-Rule Consensus · Marketplace Monitoring",
@@ -182,9 +182,9 @@ export const caseStudies = [
   },
   {
     id: "wireless-intake",
-    cardTitle: "Production-line intake model for operational bottlenecks",
+    cardTitle: "Keep a 35K-device production line moving when scanners fail",
     cardSummary:
-      "A high-volume refurbishment operation needed trustworthy fallback logic when scanner signals failed. I built an interpretable model that stabilized downstream capacity planning.",
+      "Scanner uncertainty was creating downstream capacity shocks in a ~35K-device-per-day refurbishment operation. I built an auditable fallback model that estimated intake and flagged unusual device mixes so operations could plan capacity with more confidence.",
     label: "Predictive Operations",
     title: "Wireless Carrier — Production Line Device Intake Model",
     subtitle: "Decision Tree · Online Inference · Operational Throughput",

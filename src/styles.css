@@ -1530,3 +1530,92 @@ main,
 .contactForm select option {
   color: #061012;
 }
+
+/* Commercial clarity pass: diagnostic offer and unified delivery path */
+.diagnosticBox {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: clamp(28px, 6vw, 72px);
+  align-items: center;
+  padding: clamp(30px, 6vw, 62px);
+  border: 1px solid rgba(88,225,207,0.16);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 88% 8%, rgba(88,225,207,0.12), transparent 30%),
+    linear-gradient(135deg, rgba(88,225,207,0.09), rgba(124,205,255,0.038) 50%, rgba(212,150,255,0.045) 100%),
+    rgba(255,255,255,0.03);
+  box-shadow: 0 28px 80px rgba(0,0,0,0.26);
+}
+
+.diagnosticIntro h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4.6vw, 4.25rem);
+  line-height: 0.97;
+  letter-spacing: -0.05em;
+}
+
+.diagnosticIntro > p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 22px 0 26px;
+  color: rgba(238,248,247,0.74);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.diagnosticDeliverables {
+  display: grid;
+  gap: 10px;
+}
+
+.diagnosticLabel {
+  margin: 0 0 6px;
+  color: rgba(238,248,247,0.9);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.diagnosticItem {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(238,248,247,0.09);
+}
+
+.diagnosticItem:last-child {
+  border-bottom: 0;
+}
+
+.diagnosticItem span {
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.diagnosticItem p {
+  margin: 0;
+  color: rgba(238,248,247,0.78);
+  line-height: 1.5;
+}
+
+.processGridFour {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1020px) {
+  .processGridFour {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .diagnosticBox {
+    grid-template-columns: 1fr;
+  }
+
+  .processGridFour {
+    grid-template-columns: 1fr;
+  }
+}

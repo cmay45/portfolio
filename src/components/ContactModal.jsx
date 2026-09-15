@@ -112,13 +112,12 @@ export default function ContactModal({ open, onClose }) {
           ×
         </button>
 
-        <p className="eyebrow">Schedule an intro call</p>
+        <p className="eyebrow">Bring the unclear decision</p>
 
-        <h2 id="contact-title">Request a Signalcraft Diagnostic Call.</h2>
+        <h2 id="contact-title">What decision does your team need to trust?</h2>
 
         <p className="contactIntro">
-          Use this form to request an intro call. The first conversation is focused on the decision you need to make,
-          where the current data or AI system is breaking down, and whether a Signalcraft diagnostic is the right next step.
+          Tell me about the decision, where confidence is breaking down, and what your team is working around today. The first conversation is designed to determine whether a focused Signalcraft Decision Diagnostic is the right next step.
         </p>
 
         {status === "sent" ? (
@@ -187,20 +186,20 @@ export default function ContactModal({ open, onClose }) {
             </label>
 
             <label>
-              What kind of help are you looking for?
+              Where is the decision breaking down?
               <select name="helpType" required defaultValue="">
                 <option value="" disabled>Select one</option>
-                <option value="Schedule a discovery call">Schedule a discovery call</option>
-                <option value="Data/analytics diagnostic">Data/analytics diagnostic</option>
-                <option value="AI readiness or workflow review">AI readiness or workflow review</option>
-                <option value="Dashboard/reporting trust issue">Dashboard/reporting trust issue</option>
-                <option value="Modeling, forecasting, or anomaly detection">Modeling, forecasting, or anomaly detection</option>
+                <option value="Conflicting metrics or definitions">Conflicting metrics or definitions</option>
+                <option value="Pipeline, demand, or forecasting uncertainty">Pipeline, demand, or forecasting uncertainty</option>
+                <option value="Dashboard or reporting trust issue">Dashboard or reporting trust issue</option>
+                <option value="AI or automation readiness">AI or automation readiness</option>
+                <option value="Modeling, scoring, or anomaly detection">Modeling, scoring, or anomaly detection</option>
                 <option value="Not sure yet">Not sure yet</option>
               </select>
             </label>
 
             <label>
-              Message
+              What decision are you trying to improve?
               <textarea
                 name="message"
                 required
@@ -235,7 +234,7 @@ export default function ContactModal({ open, onClose }) {
               type="submit"
               disabled={status === "submitting"}
             >
-              {status === "submitting" ? "Sending…" : "Request intro call"}
+              {status === "submitting" ? "Sending…" : "Bring the unclear decision"}
             </button>
           </form>
         )}
