@@ -1,5 +1,128 @@
 export const caseStudies = [
   {
+    id: "purchase-propensity",
+    cardTitle: "Replace a legacy lead score with a signal that predicts purchase",
+    cardSummary:
+      "The existing lead score put buyers at the top of the list only about half the time. A behavioral propensity model increased the purchase rate among the highest-ranked 20% of leads from roughly 52% to 88% — giving sales a much cleaner priority list.",
+    label: "Propensity Modeling",
+    title: "Purchase Propensity Modeling from Customer Behavior",
+    subtitle: "Behavioral Signals · Gradient Boosting · Lead Prioritization",
+    kicker: "Propensity Modeling · Customer Intelligence · Sales Prioritization",
+    summary:
+      "A first-purchase propensity model that turned CRM, web, email, form, ecommerce, timing, and dealer-context signals into a ranked probability of purchase — then tested that signal directly against the existing lead score.",
+    decision: "Which customers should sales and nurture workflows prioritize?",
+    output: "Purchase propensity score + ranked lead population + model comparison",
+    role: "Feature design, modeling, validation, scoring, business interpretation",
+    projectType: "Prior professional work sample. Organization and client-identifying details removed.",
+    signals: [
+      "Direct sales contact request",
+      "High-intent forms",
+      "Brochure requests",
+      "Web visits",
+      "Email engagement",
+      "Signal recency",
+      "Signal velocity",
+      "Ecommerce behavior",
+      "Dealer assignment",
+      "Geography",
+    ],
+    methods: [
+      "Python",
+      "scikit-learn",
+      "Gradient Boosting",
+      "SHAP",
+      "ROC / PR evaluation",
+      "Stratified cross-validation",
+      "Logistic regression comparison",
+      "Decile scoring",
+    ],
+    problem:
+      "A high-consideration consumer brand had years of customer behavior across CRM, web, email, forms, ecommerce, and dealer interactions. The existing lead score summarized engagement and fit, but it did not directly answer the commercial question: who is actually most likely to purchase?",
+    challenge:
+      "The model needed to use pre-purchase behavioral signals, work across a population of more than one million mature contacts, produce an actionable ranked score, and demonstrate whether it contained information beyond the legacy lead score rather than merely creating another number for sales to ignore.",
+    approach: [
+      "Built the first-purchase feature set around pre-purchase behavioral signals, including form activity, web engagement, email behavior, signal recency and velocity, ecommerce activity, and dealer context.",
+      "Filtered to contacts with at least five years of observable history, leaving 1,055,491 mature contacts from a 1.71M-contact source population.",
+      "Trained a gradient-boosted classifier on a 148,248-contact development sample and validated performance with a held-out test set plus five-fold stratified cross-validation.",
+      "Used feature importance and SHAP analysis to understand which behaviors drove the prediction instead of treating the model as a black box.",
+      "Compared modeled propensity directly with the existing lead score on 118,339 contacts that had both values, testing propensity alone, lead score alone, and the two combined.",
+      "Exported ranked propensity scores so the model could support routing, prioritization, and nurture decisions rather than remain an offline analysis.",
+    ],
+    metrics: [
+      { value: "~88%", label: "purchase rate among the highest-ranked 20% by propensity" },
+      { value: "~52%", label: "purchase rate among the highest-ranked 20% by legacy lead score" },
+      { value: "0.979", label: "propensity ROC AUC (technical validation)" },
+    ],
+    whatItShows:
+      "The business result was clearer than the model metric alone: among the highest-ranked 20% of leads, roughly 88% of those prioritized by behavioral propensity purchased versus about 52% under the legacy lead score. The analysis also identified which customer behaviors carried the strongest purchase signal and showed that the legacy score added essentially no useful predictive information once propensity was available.",
+    impact:
+      "Created a ranked, interpretable purchase signal for sales and nurture prioritization. At the top 20% of the ranked population, purchase rate improved from roughly 52% under the legacy score to roughly 88% under propensity. For technical validation, propensity reached 0.979 AUC versus 0.791 for the legacy score, and combining the two did not improve on propensity alone.",
+    image: {
+      type: "propensity",
+      caption: "behavioral signal interpretation + predictive comparison against the legacy lead score",
+    },
+    color: "#58e1cf",
+  },
+  {
+    id: "media-data-platform",
+    cardTitle: "Move media logic out of dashboards and into a governed data layer",
+    cardSummary:
+      "Campaign and planning data was fragmented across sources, while transformations were repeated downstream in reporting. I built a GCP media data platform that standardized the data in BigQuery/Dataform and opened governed self-service access through MCP.",
+    label: "Data Engineering",
+    title: "GCP Media Data Platform",
+    subtitle: "Cloud Run · BigQuery · Dataform · API · MCP",
+    kicker: "Data Engineering · Governed Analytics · AI-Ready Architecture",
+    summary:
+      "A production-oriented media data platform that consolidated campaign and planning data into a governed analytical layer, reduced repeated reporting logic, and created a trusted foundation for dashboards, analysis, and controlled AI access.",
+    decision: "How do we make media reporting trustworthy, reusable, and accessible without duplicating logic?",
+    output: "Staging pipeline + curated models + governed BigQuery mart + MCP access",
+    role: "Platform architecture, ingestion design, modeling, governance, AI access pattern",
+    projectType: "Prior professional work sample. Organization and client-identifying details removed.",
+    signals: [
+      "Campaign plans",
+      "Manual media files",
+      "Campaign status data",
+      "External platform data",
+      "Governed dimensions",
+      "Standardized measures",
+    ],
+    methods: [
+      "Google Cloud Platform",
+      "Cloud Run",
+      "BigQuery",
+      "Dataform",
+      "API ingestion",
+      "SQL / dbt-style modeling",
+      "Claude",
+      "MCP",
+    ],
+    problem:
+      "Media data lived across campaign plans, manual files, campaign-status sources, and external systems. Reporting logic was fragmented and difficult to scale, with transformations repeated downstream across dashboards, channels, clients, and dimensions.",
+    challenge:
+      "The team needed a reliable path from raw source data to reporting without making dashboards responsible for business logic. The platform also needed governed access patterns so analysts and future AI workflows could query trusted data rather than bypassing the modeled layer.",
+    approach: [
+      "Built API-based and scheduled ingestion into Cloud Run with raw-data validation and a staging layer in BigQuery.",
+      "Moved recurring transformations upstream into Dataform-managed curated models so definitions could be reused rather than recreated in individual dashboards.",
+      "Created a governed BigQuery data mart as the shared analytical source for standardized reporting and operational analysis.",
+      "Structured the pipeline in distinct source, staging, curated-model, and consumption layers to make lineage and ownership easier to understand.",
+      "Added role-based MCP access through Claude so users could ask questions of governed data while preserving the same trusted analytical layer used by reporting.",
+    ],
+    metrics: [
+      { value: "1", label: "governed source of truth replacing repeated downstream transformations" },
+      { value: "5", label: "clear architecture layers from source through reporting and self-service access" },
+      { value: "MCP", label: "controlled AI access to trusted analytical data" },
+    ],
+    whatItShows:
+      "AI access is only as useful as the data layer beneath it. By centralizing transformation logic and creating governed models first, the same platform could support more reliable dashboards, analyst workflows, and conversational access without creating competing definitions of the business.",
+    impact:
+      "Standardized fragmented media data into a cleaner governed pipeline, improved reporting reliability and usability, reduced duplicated transformation logic, and created a scalable foundation for future integrations and analytics work.",
+    image: {
+      type: "media-platform",
+      caption: "source → staging → curated models → governed data mart → reporting, with controlled MCP self-service access",
+    },
+    color: "#7ccdff",
+  },
+  {
     id: "construction-cost",
     cardTitle: "Earlier construction estimates without false precision",
     cardSummary:

@@ -1619,3 +1619,703 @@ main,
     grid-template-columns: 1fr;
   }
 }
+
+/* Case study visuals: propensity model + governed media data platform */
+.caseCustomVisual {
+  width: 100%;
+  min-height: 100%;
+  border: 1px solid rgba(238,248,247,0.10);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(88,225,207,0.10), transparent 32%),
+    radial-gradient(circle at 88% 92%, rgba(124,205,255,0.08), transparent 30%),
+    rgba(2,8,10,0.48);
+  overflow: hidden;
+}
+
+.propensityVisual {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background-color: rgba(238,248,247,0.10);
+}
+
+.visualPanel {
+  padding: clamp(22px, 4vw, 38px);
+  background: rgba(4,13,15,0.96);
+}
+
+.visualEyebrow {
+  margin: 0 0 9px;
+  color: var(--teal);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.visualPanel h4 {
+  margin: 0 0 24px;
+  font-size: clamp(1.15rem, 2.1vw, 1.65rem);
+  letter-spacing: -0.025em;
+}
+
+.factorList {
+  display: grid;
+  gap: 9px;
+}
+
+.factorRow {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 13px;
+  border: 1px solid rgba(238,248,247,0.09);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.032);
+}
+
+.factorRank {
+  color: var(--teal);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.factorRow strong,
+.factorRow small {
+  display: block;
+}
+
+.factorRow strong {
+  color: rgba(238,248,247,0.90);
+  font-size: 0.92rem;
+}
+
+.factorRow small {
+  margin-top: 3px;
+  color: rgba(238,248,247,0.48);
+  font-size: 0.76rem;
+}
+
+.scoreBars {
+  display: grid;
+  gap: 19px;
+  margin-top: 30px;
+}
+
+.scoreRowHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+  color: rgba(238,248,247,0.70);
+  font-size: 0.88rem;
+}
+
+.scoreRowHeader strong {
+  color: rgba(238,248,247,0.94);
+}
+
+.scoreTrack {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(238,248,247,0.07);
+}
+
+.scoreFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.scoreFill.propensity {
+  background: linear-gradient(90deg, rgba(88,225,207,0.62), rgba(88,225,207,1));
+}
+
+.scoreFill.legacy {
+  background: linear-gradient(90deg, rgba(244,111,76,0.48), rgba(244,111,76,0.88));
+}
+
+.scoreFill.combined {
+  background: linear-gradient(90deg, rgba(124,205,255,0.48), rgba(124,205,255,0.86));
+}
+
+.scoreVerdict {
+  display: grid;
+  gap: 5px;
+  margin-top: 30px;
+  padding: 18px;
+  border: 1px solid rgba(88,225,207,0.18);
+  border-radius: 16px;
+  background: rgba(88,225,207,0.065);
+}
+
+.scoreVerdict strong {
+  color: var(--teal);
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
+}
+
+.scoreVerdict span,
+.visualFootnote {
+  color: rgba(238,248,247,0.54);
+  line-height: 1.45;
+}
+
+.visualFootnote {
+  margin: 20px 0 0;
+  font-size: 0.76rem;
+}
+
+.mediaPlatformVisual {
+  display: grid;
+  gap: 24px;
+  padding: clamp(22px, 4vw, 38px);
+}
+
+.platformFlow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.platformStageWrap {
+  position: relative;
+  min-width: 0;
+}
+
+.platformStage {
+  height: 100%;
+  padding: 18px 16px;
+  border: 1px solid rgba(238,248,247,0.10);
+  border-radius: 17px;
+  background:
+    linear-gradient(155deg, rgba(88,225,207,0.075), rgba(124,205,255,0.025) 56%),
+    rgba(255,255,255,0.025);
+}
+
+.platformStep {
+  display: inline-block;
+  margin-bottom: 13px;
+  color: var(--teal);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.platformStage h4 {
+  margin: 0 0 12px;
+  color: rgba(238,248,247,0.92);
+  font-size: 0.96rem;
+}
+
+.platformStage ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.platformStage li {
+  color: rgba(238,248,247,0.53);
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.platformArrow {
+  position: absolute;
+  z-index: 2;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--teal);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.mcpAccessStrip {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  align-items: center;
+  padding: 17px 19px;
+  border: 1px solid rgba(88,225,207,0.18);
+  border-radius: 17px;
+  background: rgba(88,225,207,0.06);
+}
+
+.mcpAccessStrip > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.mcpBadge {
+  display: inline-flex;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(88,225,207,0.14);
+  color: var(--teal);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.mcpAccessStrip strong {
+  color: rgba(238,248,247,0.88);
+  font-size: 0.9rem;
+}
+
+.mcpAccessStrip p {
+  margin: 0;
+  color: rgba(238,248,247,0.57);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 920px) {
+  .propensityVisual {
+    grid-template-columns: 1fr;
+  }
+
+  .platformFlow {
+    grid-template-columns: 1fr;
+  }
+
+  .platformStageWrap {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .platformArrow {
+    position: static;
+    display: block;
+    margin: 5px 0;
+    transform: rotate(90deg);
+    text-align: center;
+  }
+
+  .mcpAccessStrip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .mcpAccessStrip > div {
+    white-space: normal;
+  }
+}
+
+/* Propensity case study — business-first comparison */
+.propensityStoryVisual {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+}
+
+.priorityPanel h4,
+.factorPanel h4 {
+  margin-bottom: 22px;
+}
+
+.priorityCompare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.priorityCard {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+  min-height: 290px;
+  padding: 22px;
+  border: 1px solid rgba(238,248,247,0.10);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  overflow: hidden;
+}
+
+.legacyPriorityCard {
+  background: linear-gradient(155deg, rgba(244,111,76,0.06), rgba(255,255,255,0.025));
+}
+
+.propensityPriorityCard {
+  border-color: rgba(88,225,207,0.22);
+  background: linear-gradient(155deg, rgba(88,225,207,0.10), rgba(255,255,255,0.025));
+}
+
+.priorityLabel {
+  color: rgba(238,248,247,0.80);
+  font-size: clamp(0.72rem, 1.2vw, 0.83rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  line-height: 1.2;
+}
+
+.priorityNumber {
+  margin-top: 16px;
+  color: rgba(238,248,247,0.98);
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.priorityPurchased {
+  margin-top: 9px;
+  color: rgba(238,248,247,0.88);
+  font-size: clamp(0.95rem, 1.4vw, 1.06rem);
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.priorityCard small {
+  margin-top: 7px;
+  color: rgba(238,248,247,0.48);
+  line-height: 1.4;
+  font-size: 0.82rem;
+}
+
+.priorityVerdict {
+  margin-top: auto;
+  padding: 14px;
+  border-radius: 13px;
+  font-size: clamp(0.78rem, 1.2vw, 0.9rem);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.legacyVerdict {
+  color: #ffb6a3;
+  background: rgba(244,111,76,0.085);
+}
+
+.propensityVerdict {
+  color: var(--teal);
+  background: rgba(88,225,207,0.08);
+}
+
+.salesQuestion {
+  display: grid;
+  gap: 7px;
+  margin-top: 16px;
+  padding: 18px 20px;
+  border: 1px solid rgba(124,205,255,0.14);
+  border-radius: 16px;
+  background: rgba(124,205,255,0.055);
+}
+
+.salesQuestion strong {
+  color: rgba(238,248,247,0.94);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.salesQuestion span {
+  color: rgba(238,248,247,0.58);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.factorBars {
+  display: grid;
+  gap: 14px;
+}
+
+.factorBarRow {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.9fr) minmax(120px, 1.1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.factorBarCopy strong,
+.factorBarCopy small {
+  display: block;
+}
+
+.factorBarCopy strong {
+  color: rgba(238,248,247,0.90);
+  font-size: 0.86rem;
+}
+
+.factorBarCopy small {
+  margin-top: 2px;
+  color: rgba(238,248,247,0.44);
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+.factorBarTrack {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(238,248,247,0.06);
+}
+
+.factorBarTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(88,225,207,0.48), rgba(124,205,255,0.92));
+}
+
+.technicalDetail {
+  display: grid;
+  gap: 9px;
+  margin-top: 24px;
+  padding: 16px;
+  border-top: 1px solid rgba(238,248,247,0.10);
+}
+
+.technicalDetail > span {
+  color: rgba(238,248,247,0.42);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.technicalMetrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.technicalMetrics strong {
+  color: rgba(238,248,247,0.82);
+  font-size: 0.8rem;
+}
+
+.technicalDetail small {
+  color: rgba(238,248,247,0.46);
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .propensityStoryVisual {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .priorityCompare {
+    grid-template-columns: 1fr;
+  }
+
+  .priorityCard {
+    min-height: 0;
+  }
+
+  .priorityNumber {
+    font-size: clamp(3rem, 12vw, 5rem);
+  }
+
+  .priorityVerdict {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 620px) {
+  .factorBarRow {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+}
+
+/* GCP media platform case study — lineage-first visual */
+.mediaPlatformVisual {
+  gap: 16px;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.mediaLineage {
+  padding: 18px 18px 14px;
+  border: 1px solid rgba(88,225,207,0.16);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 74% 10%, rgba(88,225,207,0.08), transparent 30%),
+    linear-gradient(180deg, rgba(2,12,14,0.82), rgba(4,17,19,0.92));
+  overflow: hidden;
+}
+
+.lineageHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.lineageHeader h4 {
+  margin: 5px 0 0;
+  color: rgba(238,248,247,0.94);
+  font-size: clamp(1rem, 1.7vw, 1.22rem);
+}
+
+.lineageHint {
+  flex: 0 0 auto;
+  color: rgba(238,248,247,0.38);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mediaLineage svg {
+  display: block;
+  width: 100%;
+  min-width: 760px;
+  height: auto;
+}
+
+.lineageGroupLabel {
+  fill: rgba(238,248,247,0.34);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.lineageEdge {
+  fill: none;
+  stroke: rgba(88,225,207,0.32);
+  stroke-width: 1.2;
+}
+
+.lineageNode {
+  fill: rgba(255,255,255,0.035);
+  stroke: rgba(238,248,247,0.13);
+  stroke-width: 1;
+}
+
+.lineageNodeAccent {
+  fill: rgba(88,225,207,0.055);
+  stroke: rgba(88,225,207,0.28);
+}
+
+.lineageNodeStrong {
+  fill: rgba(88,225,207,0.095);
+  stroke: rgba(88,225,207,0.52);
+  stroke-width: 1.35;
+}
+
+.lineageDot {
+  fill: rgba(238,248,247,0.32);
+}
+
+.lineageDotAccent {
+  fill: var(--teal);
+}
+
+.lineageNodeTitle {
+  fill: rgba(238,248,247,0.88);
+  font-size: 8px;
+  font-weight: 750;
+}
+
+.lineageNodeSub {
+  fill: rgba(238,248,247,0.42);
+  font-size: 6.8px;
+}
+
+.lineageTakeaway {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-top: 8px;
+  padding-top: 11px;
+  border-top: 1px solid rgba(238,248,247,0.07);
+  color: rgba(238,248,247,0.58);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.lineageTakeaway strong {
+  color: var(--teal);
+  white-space: nowrap;
+}
+
+.compactPlatformFlow {
+  gap: 8px;
+}
+
+.compactPlatformStage {
+  min-height: 0;
+  padding: 11px 12px 12px;
+  border-radius: 13px;
+}
+
+.platformStageHead {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.compactPlatformStage .platformStep {
+  margin: 0;
+  font-size: 0.62rem;
+}
+
+.compactPlatformStage h4 {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.compactPlatformStage ul {
+  gap: 3px;
+}
+
+.compactPlatformStage li {
+  font-size: 0.67rem;
+  line-height: 1.28;
+}
+
+.compactPlatformFlow .platformArrow {
+  right: -13px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 920px) {
+  .mediaLineage {
+    overflow-x: auto;
+  }
+
+  .lineageHeader {
+    align-items: flex-start;
+  }
+
+  .lineageHint {
+    display: none;
+  }
+
+  .lineageTakeaway {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .lineageTakeaway strong {
+    white-space: normal;
+  }
+
+  .compactPlatformFlow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .compactPlatformFlow .platformArrow {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .compactPlatformFlow {
+    grid-template-columns: 1fr;
+  }
+}

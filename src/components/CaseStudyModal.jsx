@@ -42,9 +42,207 @@ function DecisionTreeVisual({ color = "#58e1cf" }) {
   );
 }
 
+function PropensityVisual() {
+  const factors = [
+    { label: "Direct sales contact request", note: "strongest indicator of likely purchase", strength: 100 },
+    { label: "Recent high-intent activity", note: "active research and product interest", strength: 82 },
+    { label: "Website engagement", note: "more pages and deeper engagement", strength: 69 },
+    { label: "Email engagement", note: "opens, clicks, and consistent activity", strength: 60 },
+    { label: "Ecommerce behavior", note: "product views and cart activity", strength: 46 },
+    { label: "Recency of activity", note: "more recent activity increased likelihood", strength: 43 },
+    { label: "Velocity of engagement", note: "increasing activity over time", strength: 40 },
+    { label: "Dealer / sales assignment context", note: "account and territory context", strength: 31 },
+  ];
+
+  return (
+    <div className="caseCustomVisual propensityVisual propensityStoryVisual">
+      <section className="visualPanel priorityPanel">
+        <p className="visualEyebrow">Which score would you want your sales team working from?</p>
+        <h4>Actual purchase rate among the highest-ranked 20% of leads</h4>
+
+        <div className="priorityCompare">
+          <article className="priorityCard legacyPriorityCard">
+            <span className="priorityLabel">Legacy lead score</span>
+            <strong className="priorityNumber">~52%</strong>
+            <span className="priorityPurchased">actually purchased</span>
+            <small>Among the highest-ranked 20% of leads</small>
+            <div className="priorityVerdict legacyVerdict">Nearly 1 in 2 prioritized leads did not purchase.</div>
+          </article>
+
+          <article className="priorityCard propensityPriorityCard">
+            <span className="priorityLabel">Behavioral propensity model</span>
+            <strong className="priorityNumber">~88%</strong>
+            <span className="priorityPurchased">actually purchased</span>
+            <small>Among the highest-ranked 20% of leads</small>
+            <div className="priorityVerdict propensityVerdict">Nearly 7 in 8 prioritized leads became buyers.</div>
+          </article>
+        </div>
+
+        <div className="salesQuestion">
+          <strong>Do you want your sales team spending nearly half of its highest-priority effort on people who don’t buy?</strong>
+          <span>Behavioral propensity produced a materially cleaner priority list — more buyers, fewer non-buyers, and better use of sales time.</span>
+        </div>
+      </section>
+
+      <section className="visualPanel factorPanel">
+        <p className="visualEyebrow">What behavior actually signaled purchase intent?</p>
+        <h4>Real customer behavior carried the strongest signal.</h4>
+        <div className="factorBars">
+          {factors.map((factor) => (
+            <div className="factorBarRow" key={factor.label}>
+              <div className="factorBarCopy">
+                <strong>{factor.label}</strong>
+                <small>{factor.note}</small>
+              </div>
+              <div className="factorBarTrack" aria-hidden="true">
+                <span style={{ width: `${factor.strength}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="technicalDetail">
+          <span>For the technical buyer</span>
+          <div className="technicalMetrics">
+            <strong>Legacy AUC: 0.791</strong>
+            <strong>Propensity AUC: 0.979</strong>
+            <strong>Combined AUC: 0.978</strong>
+          </div>
+          <small>Adding the legacy lead score to the propensity model did not meaningfully improve performance.</small>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function MediaLineageGraph() {
+  const nodes = [
+    { x: 18, y: 30, w: 118, h: 32, label: "Campaign plans", sub: "source" },
+    { x: 18, y: 78, w: 118, h: 32, label: "Manual files", sub: "source" },
+    { x: 18, y: 126, w: 118, h: 32, label: "External APIs", sub: "source" },
+    { x: 176, y: 78, w: 120, h: 36, label: "Cloud Run", sub: "ingestion + validation", accent: true },
+    { x: 338, y: 48, w: 128, h: 36, label: "BigQuery raw", sub: "landing / staging" },
+    { x: 338, y: 112, w: 128, h: 36, label: "BigQuery staging", sub: "validated inputs" },
+    { x: 510, y: 40, w: 130, h: 36, label: "Dataform models", sub: "transform + enrich", accent: true },
+    { x: 510, y: 108, w: 130, h: 36, label: "Governed metrics", sub: "shared logic", accent: true },
+    { x: 684, y: 74, w: 128, h: 42, label: "Curated mart", sub: "trusted source", strong: true },
+    { x: 854, y: 34, w: 126, h: 34, label: "Dashboards", sub: "reporting" },
+    { x: 854, y: 90, w: 126, h: 34, label: "Analysis", sub: "decision support" },
+    { x: 854, y: 146, w: 126, h: 34, label: "Claude + MCP", sub: "governed AI access", accent: true },
+  ];
+
+  const edges = [
+    [136, 46, 176, 90], [136, 94, 176, 94], [136, 142, 176, 98],
+    [296, 92, 338, 66], [296, 98, 338, 130],
+    [466, 66, 510, 58], [466, 130, 510, 126],
+    [640, 58, 684, 86], [640, 126, 684, 104],
+    [812, 88, 854, 51], [812, 94, 854, 107], [812, 101, 854, 163],
+  ];
+
+  return (
+    <div className="mediaLineage" aria-label="Media analytics platform lineage">
+      <div className="lineageHeader">
+        <div>
+          <span className="visualEyebrow">Governed analytics lineage</span>
+          <h4>One transformation layer. Multiple trusted consumers.</h4>
+        </div>
+        <span className="lineageHint">dbt / Dataform-style view</span>
+      </div>
+      <svg viewBox="0 0 1000 208" role="img" aria-label="Sources flow through Cloud Run, BigQuery and Dataform into a curated mart used by dashboards, analysis and Claude through MCP">
+        <defs>
+          <marker id="mediaArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="rgba(88,225,207,0.62)" />
+          </marker>
+        </defs>
+
+        <text x="18" y="18" className="lineageGroupLabel">SOURCES</text>
+        <text x="176" y="18" className="lineageGroupLabel">INGEST</text>
+        <text x="338" y="18" className="lineageGroupLabel">STAGING</text>
+        <text x="510" y="18" className="lineageGroupLabel">MODELS</text>
+        <text x="684" y="18" className="lineageGroupLabel">MART</text>
+        <text x="854" y="18" className="lineageGroupLabel">CONSUMPTION</text>
+
+        {edges.map((edge, i) => {
+          const [x1, y1, x2, y2] = edge;
+          const mid = (x1 + x2) / 2;
+          return (
+            <path
+              key={i}
+              d={`M${x1},${y1} C${mid},${y1} ${mid},${y2} ${x2},${y2}`}
+              className="lineageEdge"
+              markerEnd="url(#mediaArrow)"
+            />
+          );
+        })}
+
+        {nodes.map((node) => (
+          <g key={`${node.label}-${node.x}`}>
+            <rect
+              x={node.x}
+              y={node.y}
+              width={node.w}
+              height={node.h}
+              rx="8"
+              className={`lineageNode ${node.accent ? "lineageNodeAccent" : ""} ${node.strong ? "lineageNodeStrong" : ""}`}
+            />
+            <circle cx={node.x + 11} cy={node.y + 11} r="3" className={node.accent || node.strong ? "lineageDotAccent" : "lineageDot"} />
+            <text x={node.x + 20} y={node.y + 14} className="lineageNodeTitle">{node.label}</text>
+            <text x={node.x + 20} y={node.y + 26} className="lineageNodeSub">{node.sub}</text>
+          </g>
+        ))}
+      </svg>
+      <div className="lineageTakeaway">
+        <strong>AI did not get a side door.</strong>
+        <span>Claude queried the same governed mart and business logic used by reporting and analysis.</span>
+      </div>
+    </div>
+  );
+}
+
+function MediaPlatformVisual() {
+  const stages = [
+    { title: "Sources", items: ["Plans + files", "Campaign status", "External APIs"] },
+    { title: "Ingest", items: ["Cloud Run", "Validation", "Raw landing"] },
+    { title: "Model", items: ["Dataform", "Transforms", "Governed logic"] },
+    { title: "Serve", items: ["BigQuery mart", "Standard measures", "Authorized access"] },
+    { title: "Consume", items: ["Dashboards", "Analysis", "Claude + MCP"] },
+  ];
+
+  return (
+    <div className="caseCustomVisual mediaPlatformVisual">
+      <MediaLineageGraph />
+
+      <div className="platformFlow compactPlatformFlow">
+        {stages.map((stage, index) => (
+          <div className="platformStageWrap" key={stage.title}>
+            <section className="platformStage compactPlatformStage">
+              <div className="platformStageHead">
+                <span className="platformStep">0{index + 1}</span>
+                <h4>{stage.title}</h4>
+              </div>
+              <ul>
+                {stage.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </section>
+            {index < stages.length - 1 ? <span className="platformArrow" aria-hidden="true">→</span> : null}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CaseVisual({ study }) {
   if (study.image?.type === "svg") {
     return <DecisionTreeVisual color={study.color} />;
+  }
+
+  if (study.image?.type === "propensity") {
+    return <PropensityVisual />;
+  }
+
+  if (study.image?.type === "media-platform") {
+    return <MediaPlatformVisual />;
   }
 
   if (study.image?.type === "img") {

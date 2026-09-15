@@ -40,7 +40,7 @@ const process = [
   },
 ];
 
-const work = ["amazon-anomaly", "wireless-intake", "amazon-content", "construction-cost"]
+const work = ["purchase-propensity", "media-data-platform", "amazon-anomaly", "wireless-intake", "amazon-content", "construction-cost"]
   .map((id) => caseStudies.find((study) => study.id === id))
   .filter(Boolean);
 
