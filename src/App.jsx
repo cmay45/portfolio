@@ -180,7 +180,7 @@ export default function App() {
 
               <div className="heroActions">
                 <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
-                  Bring the decision you don't trust
+                  Start a Conversation
                 </button>
                 <a className="secondaryBtn" href="#work">View case studies</a>
               </div>
@@ -235,7 +235,7 @@ export default function App() {
                 A Signalcraft Decision Diagnostic is a focused engagement designed to define the decision, establish the current baseline, determine which evidence can be trusted, choose the modeling approach the problem actually justifies, and map the shortest path into production.
               </p>
               <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
-                Bring the decision you don't trust
+                Start a Conversation
               </button>
             </div>
 
@@ -302,7 +302,7 @@ export default function App() {
               Signalcraft will help establish the baseline, determine what evidence can be trusted, choose the right analytical approach, and turn it into a measurable decision system the business can actually use.
             </p>
             <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
-              Bring the decision you don't trust
+              Start a Conversation
             </button>
           </div>
         </section>

@@ -112,7 +112,7 @@ export default function ContactModal({ open, onClose }) {
           ×
         </button>
 
-        <p className="eyebrow">Bring the decision you don't trust</p>
+        <p className="eyebrow">Start a Conversation</p>
 
         <h2 id="contact-title">What decision, forecast, or model does your team need to trust?</h2>
 
@@ -236,7 +236,7 @@ export default function ContactModal({ open, onClose }) {
               type="submit"
               disabled={status === "submitting"}
             >
-              {status === "submitting" ? "Sending…" : "Bring the decision you don't trust"}
+              {status === "submitting" ? "Sending…" : "Assess the Fit"}
             </button>
           </form>
         )}
