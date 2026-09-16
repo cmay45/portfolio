@@ -5,20 +5,48 @@ import CaseStudyModal from "./components/CaseStudyModal.jsx";
 import { caseStudies } from "./data/caseStudies.js";
 
 const symptoms = [
-  "Your CRM says pipeline is healthy, but sales does not trust it.",
-  "Marketing, sales, operations, and finance have different versions of the same number.",
-  "You have dashboards everywhere, but the real decision still happens in a spreadsheet.",
-  "Demand is changing before your planning and forecasting systems are detecting it.",
-  "Your team keeps asking analysts for another data pull instead of trusting what already exists.",
-  "You want to use AI or automation, but you do not trust the underlying data enough to act on it.",
+  "Your forecast keeps missing, but nobody can explain why.",
+  "Demand, staffing, inventory, or capacity changes faster than your planning cycle.",
+  "Finance and operations are making different assumptions about the same business.",
+  "An important estimate still depends mostly on someone's judgment and a spreadsheet.",
+  "You have historical data that should improve a decision, but nobody has turned it into a usable model.",
+  "Problems become obvious only after they hit revenue, margin, customers, or operations.",
+  "You have dashboards everywhere but very little ability to predict what happens next.",
+];
+
+const capabilities = [
+  {
+    title: "Forecasting & planning models",
+    text: "Estimate demand, revenue, volume, capacity, cost, and other uncertain business outcomes.",
+  },
+  {
+    title: "Predictive models",
+    text: "Prioritize customers, opportunities, risks, and operational outcomes using evidence instead of intuition alone.",
+  },
+  {
+    title: "Early-warning systems",
+    text: "Detect meaningful changes across financial, commercial, and operational signals before they become larger problems.",
+  },
+  {
+    title: "Decision models",
+    text: "Combine multiple sources of evidence into repeatable scenarios, recommendations, and decision support.",
+  },
+  {
+    title: "Measurement & causal analysis",
+    text: "Determine whether an intervention actually changed the outcome the business cares about.",
+  },
+  {
+    title: "Analytical foundations",
+    text: "Build the governed data layer when the current environment cannot support trustworthy modeling.",
+  },
 ];
 
 const diagnosticOutputs = [
-  "The decision to improve and who owns it",
-  "The systems, data, and definitions influencing it",
-  "What signals can be trusted — and what cannot yet",
-  "Analytics, forecasting, automation, or AI opportunities worth pursuing",
-  "The smallest practical next step with a clear business purpose",
+  "The decision to improve, who owns it, and the current baseline",
+  "Which data and assumptions can responsibly support the decision",
+  "Whether forecasting, statistical modeling, machine learning, optimization, or automation is justified",
+  "How improvement can be measured against the current approach",
+  "What it will take to put the solution into a production workflow",
 ];
 
 const process = [
@@ -40,7 +68,7 @@ const process = [
   },
 ];
 
-const work = ["purchase-propensity", "media-data-platform", "amazon-anomaly", "wireless-intake", "amazon-content", "construction-cost"]
+const work = ["wireless-intake", "construction-cost", "amazon-anomaly", "purchase-propensity", "media-data-platform", "amazon-content"]
   .map((id) => caseStudies.find((study) => study.id === id))
   .filter(Boolean);
 
@@ -142,17 +170,17 @@ export default function App() {
 
           <div className="wrap heroGrid">
             <div className="heroCopy">
-              <p className="eyebrow">Signal first. Tools second.</p>
+              <p className="eyebrow">Decision intelligence & applied analytics</p>
               <h1>
-                Turning customer and marketing data into <span>trusted signals for revenue, demand, inventory, and growth.</span>
+                Advanced analytics for <span>decisions too important to leave to dashboards.</span>
               </h1>
               <p className="heroLead">
-                Signalcraft helps companies connect customer and commercial behavior to the decisions that follow — across sales, operations, and finance. Start with one consequential decision, determine what evidence can be trusted, and build only what improves the decision.
+                Signalcraft builds forecasting, predictive models, anomaly detection, causal analysis, and decision systems that help finance, operations, and technology leaders make better decisions about revenue, demand, capacity, inventory, cost, and risk.
               </p>
 
               <div className="heroActions">
                 <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
-                  Bring the unclear decision
+                  Bring the decision you don't trust
                 </button>
                 <a className="secondaryBtn" href="#work">View case studies</a>
               </div>
@@ -180,16 +208,34 @@ export default function App() {
           </div>
         </section>
 
+        <section id="capabilities" className="section altSection capabilitiesSection">
+          <div className="wrap">
+            <p className="eyebrow">What Signalcraft builds</p>
+            <h2>Models and decision systems for questions reporting alone cannot answer.</h2>
+            <div className="capabilitiesGrid">
+              {capabilities.map((capability) => (
+                <article className="serviceCard" key={capability.title}>
+                  <h3>{capability.title}</h3>
+                  <p>{capability.text}</p>
+                </article>
+              ))}
+            </div>
+            <p className="processNote">
+              BI tells you what happened. Advanced analytics estimates what happens next. Decision intelligence connects that evidence to what the business should actually do.
+            </p>
+          </div>
+        </section>
+
         <section id="diagnostic" className="section diagnosticSection">
           <div className="wrap diagnosticBox">
             <div className="diagnosticIntro">
               <p className="eyebrow">The front door</p>
               <h2>Start with one decision your team does not fully trust.</h2>
               <p>
-                A Signalcraft Decision Diagnostic is a focused engagement designed to determine what evidence exists, what can be trusted, where the gaps are, and whether analytics or AI can materially improve the decision.
+                A Signalcraft Decision Diagnostic is a focused engagement designed to define the decision, establish the current baseline, determine which evidence can be trusted, choose the modeling approach the problem actually justifies, and map the shortest path into production.
               </p>
               <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
-                Bring the unclear decision
+                Bring the decision you don't trust
               </button>
             </div>
 
@@ -220,7 +266,7 @@ export default function App() {
             </div>
 
             <p className="processNote">
-              Sometimes the answer is SQL. Sometimes forecasting. Sometimes machine learning or an LLM. Complexity is useful only when it improves the decision and can be sustained by the organization.
+              Sometimes the answer is SQL. Sometimes forecasting, statistical modeling, machine learning, optimization, or an LLM. The model has to survive contact with production: complexity is useful only when it improves the decision and can be sustained by the organization.
             </p>
           </div>
         </section>
@@ -250,13 +296,13 @@ export default function App() {
 
         <section className="section ctaSection">
           <div className="wrap ctaBox">
-            <p className="eyebrow">Bring the unclear decision</p>
-            <h2>Start with the decision your team keeps revisiting, debating, or working around.</h2>
+            <p className="eyebrow">Bring the decision, forecast, or model you don't trust</p>
+            <h2>Start with the consequential decision your team keeps revisiting, debating, or working around.</h2>
             <p>
-              Signalcraft will help determine what evidence exists, what can be trusted, what is missing, and the smallest practical change that could improve the decision.
+              Signalcraft will help establish the baseline, determine what evidence can be trusted, choose the right analytical approach, and turn it into a measurable decision system the business can actually use.
             </p>
             <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
-              Bring the unclear decision
+              Bring the decision you don't trust
             </button>
           </div>
         </section>
@@ -270,16 +316,16 @@ export default function App() {
 
             <div className="bodyCopy aboutCopy">
               <p>
-                Signalcraft Analytics is led by Charlie May. His career began in digital commerce, marketing, and business leadership before moving deliberately into hands-on analytics, data engineering, machine learning, and applied AI.
+                Signalcraft Analytics is led by Charlie May. He spent the first half of his career operating businesses and digital products before moving deliberately into hands-on data science, analytics engineering, machine learning, and applied AI.
               </p>
               <p>
-                That path matters to clients: the work starts with the commercial or operational decision, not with a preferred technology. The same person helping define the problem can trace the data, test the signal, build the model, and help put the result into a real workflow.
+                That combination allows Signalcraft to move from business question to data architecture to statistical model to production workflow without losing sight of the decision the system exists to improve.
               </p>
               <p>
                 Charlie is completing an M.S. in Analytics at Georgia Tech, formalizing the engineering, statistics, and analytical methods behind work spanning forecasting, anomaly detection, causal measurement, operational modeling, machine learning, and cloud data infrastructure.
               </p>
               <p>
-                The goal is not more dashboards, more models, or more AI. It is better evidence moving between the people responsible for demand, revenue, operations, and financial performance.
+                The goal is not more dashboards, more models, or more AI. It is better forecasts, earlier warnings, stronger estimates, and more defensible decisions across financial, operational, and commercial performance.
               </p>
             </div>
           </div>

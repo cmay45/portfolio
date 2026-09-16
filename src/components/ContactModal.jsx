@@ -112,12 +112,12 @@ export default function ContactModal({ open, onClose }) {
           ×
         </button>
 
-        <p className="eyebrow">Bring the unclear decision</p>
+        <p className="eyebrow">Bring the decision you don't trust</p>
 
-        <h2 id="contact-title">What decision does your team need to trust?</h2>
+        <h2 id="contact-title">What decision, forecast, or model does your team need to trust?</h2>
 
         <p className="contactIntro">
-          Tell me about the decision, where confidence is breaking down, and what your team is working around today. The first conversation is designed to determine whether a focused Signalcraft Decision Diagnostic is the right next step.
+          Tell me about the decision, forecast, or model; where confidence is breaking down; and what the business is working around today. The first conversation is designed to determine whether a focused Signalcraft Decision Diagnostic is the right next step.
         </p>
 
         {status === "sent" ? (
@@ -189,11 +189,13 @@ export default function ContactModal({ open, onClose }) {
               Where is the decision breaking down?
               <select name="helpType" required defaultValue="">
                 <option value="" disabled>Select one</option>
-                <option value="Conflicting metrics or definitions">Conflicting metrics or definitions</option>
-                <option value="Pipeline, demand, or forecasting uncertainty">Pipeline, demand, or forecasting uncertainty</option>
-                <option value="Dashboard or reporting trust issue">Dashboard or reporting trust issue</option>
-                <option value="AI or automation readiness">AI or automation readiness</option>
-                <option value="Modeling, scoring, or anomaly detection">Modeling, scoring, or anomaly detection</option>
+                <option value="Forecasting or planning uncertainty">Forecasting or planning uncertainty</option>
+                <option value="Predictive modeling or prioritization">Predictive modeling or prioritization</option>
+                <option value="Cost, demand, capacity, or risk estimation">Cost, demand, capacity, or risk estimation</option>
+                <option value="Anomaly detection or early warning">Anomaly detection or early warning</option>
+                <option value="Measurement or causal analysis">Measurement or causal analysis</option>
+                <option value="Analytical foundation or data trust">Analytical foundation or data trust</option>
+                <option value="AI or automation decision support">AI or automation decision support</option>
                 <option value="Not sure yet">Not sure yet</option>
               </select>
             </label>
@@ -234,7 +236,7 @@ export default function ContactModal({ open, onClose }) {
               type="submit"
               disabled={status === "submitting"}
             >
-              {status === "submitting" ? "Sending…" : "Bring the unclear decision"}
+              {status === "submitting" ? "Sending…" : "Bring the decision you don't trust"}
             </button>
           </form>
         )}

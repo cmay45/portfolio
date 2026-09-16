@@ -4,7 +4,7 @@ export const caseStudies = [
     cardTitle: "Replace a legacy lead score with a signal that predicts purchase",
     cardSummary:
       "The existing lead score put buyers at the top of the list only about half the time. A behavioral propensity model increased the purchase rate among the highest-ranked 20% of leads from roughly 52% to 88% — giving sales a much cleaner priority list.",
-    label: "Propensity Modeling",
+    label: "Prediction & Prioritization",
     title: "Purchase Propensity Modeling from Customer Behavior",
     subtitle: "Behavioral Signals · Gradient Boosting · Lead Prioritization",
     kicker: "Propensity Modeling · Customer Intelligence · Sales Prioritization",
@@ -65,10 +65,10 @@ export const caseStudies = [
   },
   {
     id: "media-data-platform",
-    cardTitle: "Move media logic out of dashboards and into a governed data layer",
+    cardTitle: "Build a governed analytical foundation before scaling reporting or AI",
     cardSummary:
       "Campaign and planning data was fragmented across sources, while transformations were repeated downstream in reporting. I built a GCP media data platform that standardized the data in BigQuery/Dataform and opened governed self-service access through MCP.",
-    label: "Data Engineering",
+    label: "Analytical Foundation",
     title: "GCP Media Data Platform",
     subtitle: "Cloud Run · BigQuery · Dataform · API · MCP",
     kicker: "Data Engineering · Governed Analytics · AI-Ready Architecture",
@@ -127,7 +127,7 @@ export const caseStudies = [
     cardTitle: "Earlier construction estimates without false precision",
     cardSummary:
       "Early-stage estimates had too little scope for confident pricing. I rebuilt the modeling layer around historical cost, geography, inflation, and scope signals — improving R² 176% from the inherited drifted baseline and keeping 95% of predictions within the Class 5 range.",
-    label: "Machine Learning",
+    label: "Cost & Forecasting",
     title: "Class 5 Construction Cost Estimation",
     subtitle: "Georgia Tech Practicum · Random Forest · Feature Engineering",
     kicker: "Machine Learning · Feature Engineering · Decision Support",
@@ -188,7 +188,7 @@ export const caseStudies = [
     cardTitle: "Faster listing optimization with proof and guardrails",
     cardSummary:
       "AI could speed up product-content changes, but uncontrolled edits risked search performance. I built a governed workflow that generated drafts, protected keyword relevance, and used causal measurement across 16 metrics to prove whether approved changes created lift.",
-    label: "Analytics Platform",
+    label: "Measurement & Causal Analysis",
     title: "Amazon Content Optimization Platform",
     subtitle: "Compliance · Optimization · Causal Measurement · Catalog Defense",
     kicker: "Causal Inference · Content Intelligence · End-to-End Platform",
@@ -247,10 +247,10 @@ export const caseStudies = [
   },
   {
     id: "amazon-anomaly",
-    cardTitle: "Detect marketplace problems before they become surprises",
+    cardTitle: "Detect business problems before they become surprises",
     cardSummary:
       "Revenue, traffic, ad spend, buy box, and inventory were monitored separately, making meaningful shifts easy to miss. I combined them into a multi-signal warning system that surfaced actionable movement before it became a client-facing surprise.",
-    label: "Anomaly Detection",
+    label: "Early Warning",
     title: "Multi-Signal Amazon Anomaly Detection Platform",
     subtitle: "Prophet · Multi-Rule Consensus · Marketplace Monitoring",
     kicker: "Anomaly Detection · Production Systems · MLOps",
@@ -308,7 +308,7 @@ export const caseStudies = [
     cardTitle: "Keep a 35K-device production line moving when scanners fail",
     cardSummary:
       "Scanner uncertainty was creating downstream capacity shocks in a ~35K-device-per-day refurbishment operation. I built an auditable fallback model that estimated intake and flagged unusual device mixes so operations could plan capacity with more confidence.",
-    label: "Predictive Operations",
+    label: "Operations & Capacity",
     title: "Wireless Carrier — Production Line Device Intake Model",
     subtitle: "Decision Tree · Online Inference · Operational Throughput",
     kicker: "Anomaly Detection · Online ML · Operations",
