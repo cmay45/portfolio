@@ -182,7 +182,7 @@ export default function App() {
                 <button className="primaryBtn" type="button" onClick={() => setContactOpen(true)}>
                   Start a Conversation
                 </button>
-                <a className="secondaryBtn" href="#work">View case studies</a>
+                <a className="secondaryBtn" href="#work">View Case Studies</a>
               </div>
             </div>
           </div>
